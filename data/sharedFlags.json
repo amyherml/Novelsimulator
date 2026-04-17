@@ -1,0 +1,13 @@
+{
+  "unlockedStories": [],
+  "globalAchievements": {
+    "first_heart": false,
+    "time_traveler": false
+  },
+  "storySpecificUnlocks": {
+    "R1": {
+      "endingsUnlocked": ["ending_happy_rain", "ending_mutual"],
+      "specialFlag": "has_read_poem"
+    }
+  }
+}

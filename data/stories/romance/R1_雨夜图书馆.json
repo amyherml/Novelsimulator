@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "storyId": "R_mini",
+    "title": "雨夜图书馆",
+    "type": "romance"
+  },
+  "startNodeId": "scene_1",
+  "globalFlags": {},
+  "nodes": {
+    "scene_1": {
+      "id": "scene_1",
+      "text": "雨下得很大，你看到一个男孩在屋檐下躲雨。",
+      "options": [
+        { "text": "递给他一把伞", "nextNode": "scene_2_share", "flagsToSet": { "shared": true } },
+        { "text": "假装没看见", "nextNode": "scene_2_ignore", "flagsToSet": { "shared": false } }
+      ],
+      "isEnding": false
+    },
+    "scene_2_share": {
+      "id": "scene_2_share",
+      "text": "他感激地接过伞，说想请你喝咖啡。",
+      "options": [
+        { "text": "接受邀请", "nextNode": "ending_happy", "flagsToSet": {} }
+      ],
+      "isEnding": false
+    },
+    "scene_2_ignore": {
+      "id": "scene_2_ignore",
+      "text": "你走开了，但心里有些后悔。",
+      "options": [
+        { "text": "结局", "nextNode": "ending_sad", "flagsToSet": {} }
+      ],
+      "isEnding": false
+    },
+    "ending_happy": {
+      "id": "ending_happy",
+      "text": "你们成了朋友，后来在雨中结婚了。",
+      "options": [],
+      "isEnding": true
+    },
+    "ending_sad": {
+      "id": "ending_sad",
+      "text": "你独自回家，再也没见过他。",
+      "options": [],
+      "isEnding": true
+    }
+  },
+  "endings": {}
+}

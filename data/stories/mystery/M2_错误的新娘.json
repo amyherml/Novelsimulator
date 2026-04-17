@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "storyId": "M2",
+    "title": "错误的新娘 · 消失的宾客",
+    "type": "mystery",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "婚礼当天，新娘离奇失踪，你被误认为是她的替身，却卷入一桩谋杀案。",
+    "tags": ["婚礼", "失踪", "替身"]
+  },
+  "startNodeId": "M2_start",
+  "globalFlags": {
+    "suspicion": 0,
+    "foundClue": false,
+    "trustGroom": false
+  },
+  "nodes": {
+    "M2_start": {
+      "id": "M2_start",
+      "text": "你刚走进酒店大厅，就被一位管家拉住：“新娘，您怎么还在这里？婚礼马上开始了！” 你正要解释，却被推上红毯。新郎是个冷峻的男人，他低声说：“别说话，配合我。我妹妹失踪了，凶手可能就在宾客中。” 你愣住了。",
+      "options": [
+        {
+          "text": "🤵 配合他，假装新娘",
+          "nextNode": "M2_cooperate",
+          "flagsToSet": { "trustGroom": true }
+        },
+        {
+          "text": "🚨 立刻大声说认错人了",
+          "nextNode": "M2_declare",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M2_cooperate": {
+      "id": "M2_cooperate",
+      "text": "婚礼草草结束。新郎带你去书房，告诉你：他的妹妹三天前失踪，最后一次联系是发短信说“他知道我看到了”。而今天，一个匿名信封寄来一张婚礼请柬，新娘名字写的是他妹妹。他怀疑有人想引蛇出洞。",
+      "options": [
+        {
+          "text": "🕵️‍♀️ 答应帮他调查",
+          "nextNode": "M2_investigate",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🚪 拒绝，想要离开",
+          "nextNode": "M2_leave",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M2_declare": {
+      "id": "M2_declare",
+      "text": "全场哗然。新郎脸色铁青，宾客中有人窃窃私语。你被请出酒店，但第二天，警察找上门：新郎的妹妹死了，而你曾出现在婚礼现场，成为嫌疑人。",
+      "options": [
+        {
+          "text": "🔍 自己查清真相",
+          "nextNode": "M2_self_investigate",
+          "flagsToSet": {}
+        },
+        {
+          "text": "⚖️ 请律师",
+          "nextNode": "ending_wrongly_accused",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M2_investigate": {
+      "id": "M2_investigate",
+      "text": "你们查看婚礼监控，发现一个戴帽子的男人一直在盯着新娘休息室。新郎认出那是妹妹的前男友，有暴力倾向。",
+      "options": [
+        {
+          "text": "📸 去前男友家",
+          "nextNode": "M2_ex_house",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📞 报警，让警察去",
+          "nextNode": "M2_police",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M2_ex_house": {
+      "id": "M2_ex_house",
+      "text": "你们在前男友家的地下室发现了被囚禁的新郎妹妹，她还活着。前男友持刀对峙。",
+      "options": [
+        {
+          "text": "🛡️ 保护新郎妹妹，搏斗",
+          "nextNode": "M2_fight",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📞 先报警，拖延时间",
+          "nextNode": "M2_wait_police",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M2_fight": {
+      "id": "M2_fight",
+      "text": "你冲上前打掉凶器，新郎制服了前男友。警察赶到，妹妹得救。她哭着说，前男友因为分手而绑架了她。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：英雄救美】你成了真正的英雄。"
+    },
+    "M2_wait_police": {
+      "id": "M2_wait_police",
+      "text": "警察破门而入，前男友被擒。妹妹安全，她感谢你和新郎。你们成了朋友。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：智取】不流血的成功。"
+    },
+    "M2_police": {
+      "id": "M2_police",
+      "text": "警察在前男友家找到妹妹，她被救出。新郎对你表示感谢，但你们再也没有交集。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：各归各位】一场乌龙，一次善举。"
+    },
+    "M2_self_investigate": {
+      "id": "M2_self_investigate",
+      "text": "你通过婚礼照片找到那个戴帽子的男人，跟踪他到一处废弃仓库。里面藏着新郎妹妹的遗体。你报警，男人被捕。原来他是新郎的生意对手，为了勒索而绑架，但失手杀人。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：独行侦探】你洗清了嫌疑，但留下了阴影。"
+    },
+    "ending_wrongly_accused": {
+      "id": "ending_wrongly_accused",
+      "text": "律师帮你脱罪，但舆论已经毁掉了你的生活。你搬离了那座城市，再也不参加婚礼。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：被冤枉的替罪羊】真相未能大白。"
+    },
+    "M2_leave": {
+      "id": "M2_leave",
+      "text": "你坚持离开，新郎没有阻拦。后来你在新闻上看到，新郎的妹妹的尸体在海边被发现，凶手至今未落网。你偶尔会后悔，如果当时留下，也许能改变什么。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：旁观者】愧疚与遗憾。"
+    }
+  },
+  "endings": {}
+}

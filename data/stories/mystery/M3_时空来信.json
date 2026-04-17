@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "storyId": "M3",
+    "title": "时空来信 · 死亡预告",
+    "type": "mystery",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "你收到一封来自未来的信，警告你三天后会有一场谋杀。",
+    "tags": ["时间", "预告", "谋杀"]
+  },
+  "startNodeId": "M3_start",
+  "globalFlags": {
+    "believed": false,
+    "altered": false,
+    "caughtKiller": false
+  },
+  "nodes": {
+    "M3_start": {
+      "id": "M3_start",
+      "text": "你在信箱里发现一封没有邮票的信，信封上写着“致三天前的你”。拆开一看，信中说：“我是你，来自三天后。请听好：明天晚上8点，你的邻居张婷会被杀死。凶手是她的丈夫。你必须阻止他。” 你以为是恶作剧，但信中还附上了只有你自己知道的一个秘密。",
+      "options": [
+        {
+          "text": "😨 相信它，去警告张婷",
+          "nextNode": "M3_warn",
+          "flagsToSet": { "believed": true }
+        },
+        {
+          "text": "🤷 认为是玩笑，丢掉",
+          "nextNode": "M3_ignore",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M3_warn": {
+      "id": "M3_warn",
+      "text": "你找到张婷，但她不相信你。你只好暗中观察。第二天晚上7点，你听到她家传来争吵声。",
+      "options": [
+        {
+          "text": "🚪 敲门介入",
+          "nextNode": "M3_intervene",
+          "flagsToSet": { "altered": true }
+        },
+        {
+          "text": "📞 报警",
+          "nextNode": "M3_call_police2",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M3_ignore": {
+      "id": "M3_ignore",
+      "text": "第二天，你看到警车停在楼下，张婷死了。你后悔莫及，回家后，信箱里又出现一封信：“现在你相信了？但已经晚了。你可以回到过去吗？——未来的你。”",
+      "options": [
+        {
+          "text": "⏪ 尝试按照信中的方法回到过去",
+          "nextNode": "M3_timetravel",
+          "flagsToSet": {}
+        },
+        {
+          "text": "😔 接受现实，报警提供线索",
+          "nextNode": "ending_regret",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M3_intervene": {
+      "id": "M3_intervene",
+      "text": "你冲进去，看到张婷的丈夫举着刀。你大声制止，他愣住了，张婷趁机逃出门。警察随后赶到，丈夫被捕。",
+      "options": [
+        {
+          "text": "📝 结局",
+          "nextNode": "ending_hero",
+          "flagsToSet": { "caughtKiller": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M3_call_police2": {
+      "id": "M3_call_police2",
+      "text": "警察及时赶到，制服了丈夫。张婷得救，她感谢你。后来你收到第三封信：“谢谢你，改变了我的命运。”",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：命运改写】你救了邻居的命。"
+    },
+    "M3_timetravel": {
+      "id": "M3_timetravel",
+      "text": "你按照信中的指示，在午夜12点对着镜子重复三遍“回到过去”。然后，你惊醒了，发现回到了昨天的早晨。这次，你直接报警，说有人要谋杀张婷。警察提前布控，在丈夫动手时当场抓获。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：逆转时空】第二次机会，完美结局。"
+    },
+    "ending_regret": {
+      "id": "ending_regret",
+      "text": "你向警方提供了线索，丈夫被定罪。但你一直活在自责中，那封信再也没有出现过。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：悔恨余生】本可阻止，却错过。"
+    },
+    "ending_hero": {
+      "id": "ending_hero",
+      "text": "你成了小区里的英雄。张婷送来果篮，你笑着收下。回家后，你写了一封信，放在信箱里：“未来的你，请继续守护他人。”",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：守护者】善意穿越时间。"
+    }
+  },
+  "endings": {}
+}

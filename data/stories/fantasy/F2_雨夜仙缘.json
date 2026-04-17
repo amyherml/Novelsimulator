@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "storyId": "F2",
+    "title": "雨夜仙缘 · 废柴逆袭",
+    "type": "fantasy",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "雨夜在图书馆发现一块玉佩，穿越到修仙世界成为灵根被废的女弟子，与高冷师尊相恋。",
+    "tags": ["穿越", "修仙", "师尊", "逆袭"]
+  },
+  "startNodeId": "F2_start",
+  "globalFlags": {
+    "cultivated": 0,
+    "trustMaster": false,
+    "foundSecret": false
+  },
+  "nodes": {
+    "F2_start": {
+      "id": "F2_start",
+      "text": "雨夜，你在旧图书馆的角落捡到一块温润的玉佩，上面刻着“太虚”。刚握紧，眼前白光闪过——你发现自己跪在一个仙气缭绕的大殿中，周围都是穿着古装的修仙者。一个清冷的声音说：“灵根尽毁，逐出师门。” 你成了青云宗最废柴的外门弟子，而说话的人正是宗主的首徒——清玄师尊。",
+      "options": [
+        {
+          "text": "😢 求情留下",
+          "nextNode": "F2_plead",
+          "flagsToSet": { "trustMaster": 10 }
+        },
+        {
+          "text": "💪 默默离开，另寻出路",
+          "nextNode": "F2_leave",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F2_plead": {
+      "id": "F2_plead",
+      "text": "清玄看了你一眼，破例让你留在外门做杂役。你白天干活，晚上偷偷用现代知识尝试修炼——你发现玉佩能吸收天地灵气，修复你的灵根。",
+      "options": [
+        {
+          "text": "🔮 继续秘密修炼",
+          "nextNode": "F2_secret_cultivate",
+          "flagsToSet": { "cultivated": 20 }
+        },
+        {
+          "text": "🙇 向清玄坦白玉佩的秘密",
+          "nextNode": "F2_confess_jade",
+          "flagsToSet": { "trustMaster": 30 }
+        }
+      ],
+      "isEnding": false
+    },
+    "F2_leave": {
+      "id": "F2_leave",
+      "text": "你离开宗门，在山下遇到魔修袭击。清玄突然出现救了你，说：“跟我回去。” 你只好跟着他。",
+      "options": [
+        {
+          "text": "🏠 回去，不再乱跑",
+          "nextNode": "F2_plead",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F2_secret_cultivate": {
+      "id": "F2_secret_cultivate",
+      "text": "半年后，你的修为突飞猛进，在外门大比中一鸣惊人。清玄注意到你，单独召见：“你身上有股熟悉的气息，那块玉佩给我看看。” 你犹豫了。",
+      "options": [
+        {
+          "text": "📿 给他看",
+          "nextNode": "F2_show_jade",
+          "flagsToSet": { "trustMaster": 40 }
+        },
+        {
+          "text": "🤐 拒绝，说是祖传的",
+          "nextNode": "F2_hide",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F2_show_jade": {
+      "id": "F2_show_jade",
+      "text": "清玄握住玉佩，神色大变：“这是我失踪多年的师妹的遗物。她曾是我的未婚妻。” 原来，他的师妹百年前渡劫失败，玉佩流落人间。他以为你是她的转世。",
+      "options": [
+        {
+          "text": "💔 告诉他，我不是她",
+          "nextNode": "F2_truth",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤫 将错就错，利用感情",
+          "nextNode": "ending_manipulate",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F2_truth": {
+      "id": "F2_truth",
+      "text": "清玄沉默许久：“无论你是不是她，这半年我已对你动心。” 他教你最高深的功法，你突破元婴，与他并肩对抗魔族。",
+      "options": [
+        {
+          "text": "❤️ 接受他的爱",
+          "nextNode": "ending_double_cultivation",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_double_cultivation": {
+      "id": "ending_double_cultivation",
+      "text": "你们结成道侣，共同飞升。在仙界，你们找到了清玄师妹的残魂，她祝福你们。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：仙侣奇缘】前世今生，爱在仙界延续。"
+    },
+    "ending_manipulate": {
+      "id": "ending_manipulate",
+      "text": "你利用清玄的感情获取资源，最终背叛他投靠魔族。清玄心碎入魔，与你决战同归于尽。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：孽缘】欺骗换不来真心。"
+    },
+    "F2_hide": {
+      "id": "F2_hide",
+      "text": "清玄不再追问，但暗中调查你。你感到被监视，决定离开宗门。离开后你被魔族抓住，清玄来救你时重伤。临终前他说：“玉佩……是我给你的。” 原来，玉佩是他故意放在你前世的。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：宿命之痛】他守护了你两世。"
+    },
+    "F2_confess_jade": {
+      "id": "F2_confess_jade",
+      "text": "清玄听后，将你收为亲传弟子。他亲自教你，你们朝夕相处，情愫暗生。一次意外，你为救他挡下天劫，灵根彻底修复，突破大乘。",
+      "options": [
+        {
+          "text": "💞 表白",
+          "nextNode": "ending_double_cultivation",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    }
+  },
+  "endings": {}
+}

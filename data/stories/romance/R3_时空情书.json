@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "storyId": "R3",
+    "title": "时空情书",
+    "type": "romance",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "在旧书摊买到一本空白日记，写下心事，第二天却收到一封来自1999年的回信。",
+    "tags": ["时空", "书信", "宿命"]
+  },
+  "startNodeId": "R3_start",
+  "globalFlags": {
+    "belief": 0,
+    "wroteBack": false,
+    "investigated": false,
+    "changedPast": false
+  },
+  "nodes": {
+    "R3_start": {
+      "id": "R3_start",
+      "text": "周末的旧书市场飘着雨后的泥土味。你在一个不起眼的摊位发现一本泛黄的空白日记，封面上手绘着一朵鸢尾花。摊主说：“十块钱，拿去。” 当晚，你随手写下今日的烦恼：“真希望明天不要下雨，我要去见一个重要的人。” 第二天醒来，日记本上多了一行陌生的字迹：“雨不会停，但那个人会撑伞等你。 ——阿昭，1999.3.12” 你愣住了——1999年？那是二十多年前。",
+      "options": [
+        {
+          "text": "📝 觉得有趣，回信试试",
+          "nextNode": "R3_reply",
+          "flagsToSet": { "wroteBack": true, "belief": 10 }
+        },
+        {
+          "text": "🤔 怀疑是恶作剧，不理它",
+          "nextNode": "R3_ignore",
+          "flagsToSet": { "belief": -10 }
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_reply": {
+      "id": "R3_reply",
+      "text": "你半信半疑地在日记里写下：“你是谁？怎么证明你是1999年的人？” 第二天，新的回信出现了：“我无法证明，但明天下午3点，你会在街角咖啡厅捡到一枚旧硬币。那是我故意留在那里的。 ——阿昭” 第二天，你真的在咖啡厅桌脚边发现了一枚1999年的纪念币。",
+      "options": [
+        {
+          "text": "✨ 相信他，继续通信",
+          "nextNode": "R3_believe",
+          "flagsToSet": { "belief": 30 }
+        },
+        {
+          "text": "🔍 还是觉得太蹊跷，调查日记来历",
+          "nextNode": "R3_investigate",
+          "flagsToSet": { "investigated": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_ignore": {
+      "id": "R3_ignore",
+      "text": "你把日记扔进抽屉，不再理会。但连续几天，日记里都会自动出现新的句子：“为什么不回信？”“我一直在等。”“你会有危险，3天后别坐那班地铁。” 你开始感到不安。",
+      "options": [
+        {
+          "text": "😨 被预言吓到，决定回信",
+          "nextNode": "R3_reluctant_reply",
+          "flagsToSet": { "wroteBack": true, "belief": 5 }
+        },
+        {
+          "text": "🗑️ 把日记烧掉，一了百了",
+          "nextNode": "ending_burn",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_reluctant_reply": {
+      "id": "R3_reluctant_reply",
+      "text": "你提笔写道：“你到底想怎样？” 第二天回信：“我只想帮你。我知道你未来会经历一件后悔的事，我想阻止它。请告诉我，你最近是否认识一个叫林越的人？” 你心里一惊——林越是你的大学同学，下周约你一起旅行。",
+      "options": [
+        {
+          "text": "⚠️ 相信他，拒绝林越的邀请",
+          "nextNode": "R3_avoid_disaster",
+          "flagsToSet": { "belief": 20 }
+        },
+        {
+          "text": "🤨 不信，照常赴约",
+          "nextNode": "R3_disaster",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_believe": {
+      "id": "R3_believe",
+      "text": "你们开始频繁通信。阿昭总能准确说出第二天发生的事情，甚至提醒你避开了一场车祸。你渐渐依赖他，每晚写下心事，第二天清晨读他的回信，就像等待情书一样。",
+      "options": [
+        {
+          "text": "💌 问他：你为什么愿意帮我？",
+          "nextNode": "R3_ask_reason",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📖 继续通信，不问过去",
+          "nextNode": "R3_deep_connection",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_ask_reason": {
+      "id": "R3_ask_reason",
+      "text": "第二天，他的回信很长：“因为我在1999年也曾收到过一封来自未来的信，那封信改变了我的一生。写信的人叫苏晚——那是你的名字。原来，我们互为因果。” 你震惊了。",
+      "options": [
+        {
+          "text": "🔄 那我们岂不是在循环？",
+          "nextNode": "R3_loop",
+          "flagsToSet": {}
+        },
+        {
+          "text": "❤️ 那你在1999年，是什么样的人？",
+          "nextNode": "R3_his_story",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_loop": {
+      "id": "R3_loop",
+      "text": "他写道：“是的，这是一个闭环。但我不在乎，只要能和你说话。” 你忽然泪目。你想改变过去，让他不必孤独地等待二十多年。",
+      "options": [
+        {
+          "text": "⏳ 尝试在日记里写下改变他命运的方法",
+          "nextNode": "R3_change_past",
+          "flagsToSet": { "changedPast": true }
+        },
+        {
+          "text": "📜 接受这个循环，继续通信",
+          "nextNode": "R3_eternal_letters",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_his_story": {
+      "id": "R3_his_story",
+      "text": "他描述自己：1999年，他18岁，是个内向的少年，父母离异，经常一个人去旧书店。收到你的信后，他鼓起勇气考上了大学，后来成了一名作家。他说：“是你给了我方向。”",
+      "options": [
+        {
+          "text": "📚 想见见他现在的样子",
+          "nextNode": "R3_meet_present",
+          "flagsToSet": {}
+        },
+        {
+          "text": "✍️ 问他：那本日记现在在哪？",
+          "nextNode": "R3_diary_origin",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_meet_present": {
+      "id": "R3_meet_present",
+      "text": "你查到了阿昭现在的名字——他叫程昭，是当地小有名气的作家，签售会就在下周六。你决定去见他。",
+      "options": [
+        {
+          "text": "🎫 去签售会，但不要暴露身份",
+          "nextNode": "R3_meet_quiet",
+          "flagsToSet": {}
+        },
+        {
+          "text": "💌 直接在日记里告诉他你会去",
+          "nextNode": "R3_meet_disclose",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_meet_quiet": {
+      "id": "R3_meet_quiet",
+      "text": "签售会上，你排在队伍里，看到程昭温和的笑容。轮到你时，他抬头看你，忽然愣住了：“你……叫什么名字？” 你说了真名。他眼眶微红：“终于见到你了。”",
+      "options": [
+        {
+          "text": "☕ 结束后一起喝咖啡",
+          "nextNode": "ending_reunion",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_reunion": {
+      "id": "ending_reunion",
+      "text": "你们聊了很久。他说，二十年来他一直保存着那本日记，直到几天前发现它消失了，原来它穿越到了你手中。他握住你的手：“这次，我们不要再有时差了。”\n\n📖 【结局：时空重逢】跨越二十多年的等待，终于相见。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "最好的情书，是彼此的一生。"
+    },
+    "R3_meet_disclose": {
+      "id": "R3_meet_disclose",
+      "text": "你在日记里说：“我会去你的签售会，坐在第三排。” 签售会当天，他频频看向那个位置，你们目光相遇，他几乎无法专心签名。结束后，他径直走向你。",
+      "options": [
+        {
+          "text": "🤝 相认，并告诉他你收到的第一封信",
+          "nextNode": "ending_reunion",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_deep_connection": {
+      "id": "R3_deep_connection",
+      "text": "几个月过去，你们无话不谈。你发现自己爱上了这个从未谋面的人，而他也在字里行间流露着同样的情感。一天，他写道：“我想见你，但我不敢。我怕见面后，这个魔法就会消失。”",
+      "options": [
+        {
+          "text": "💪 鼓励他：魔法不会消失，爱会更强",
+          "nextNode": "R3_meet_present",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📝 尊重他，继续书信往来",
+          "nextNode": "R3_eternal_letters",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_eternal_letters": {
+      "id": "R3_eternal_letters",
+      "text": "你们一辈子都保持着书信联系，从未见面。他成了你最深的秘密，你也成了他永恒的光。直到晚年，你在他的讣告上看到一句话：“致苏晚，谢谢你陪我走过一生。”",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：永远的笔友】未曾谋面，却爱了一生。"
+    },
+    "R3_change_past": {
+      "id": "R3_change_past",
+      "text": "你写下：“阿昭，1999年5月，不要去那个公园。那里会发生意外。” 第二天，日记本上的字迹开始颤抖：“我本来会死在那里。但你救了我。可是……日记本正在变淡。”",
+      "options": [
+        {
+          "text": "📖 继续写，试图留住联系",
+          "nextNode": "R3_fading",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_fading": {
+      "id": "R3_fading",
+      "text": "你拼命写下更多，但字迹越来越浅。最后一页写着：“谢谢你，苏晚。再见。” 之后，日记本变成了空白，再也没有字迹出现。你查了历史，当年公园确实发生过一起事故，但无人伤亡。你哭了，但也笑了。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：日记消失】你改变了他的命运，却失去了他。但你知道，他在另一个时空活得很好。"
+    },
+    "R3_investigate": {
+      "id": "R3_investigate",
+      "text": "你找到旧书摊主，他说这本日记来自一位老人的遗物。你辗转找到老人的孙子，他拿出一张照片：“这是我爷爷年轻时的照片。” 照片上的人，眉眼竟和阿昭描述的自己一模一样。",
+      "options": [
+        {
+          "text": "📜 得知他已经去世，但你仍然回信",
+          "nextNode": "R3_final_letter",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_final_letter": {
+      "id": "R3_final_letter",
+      "text": "你在日记里写下：“阿昭，我找到你了。虽然你已经不在，但你的信永远在我心里。” 第二天，日记里出现最后一行字：“谢谢你记得我。爱能穿越时空，也会穿越生死。 ——阿昭”",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：超越生死】有些爱，不会因时间而终止。"
+    },
+    "R3_avoid_disaster": {
+      "id": "R3_avoid_disaster",
+      "text": "你找借口推掉了林越的旅行。后来听说那趟车出了事故，林越受了重伤。你后怕不已，从此完全相信阿昭。",
+      "options": [
+        {
+          "text": "🙏 感谢阿昭，并问他想要什么回报",
+          "nextNode": "R3_thanks",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R3_thanks": {
+      "id": "R3_thanks",
+      "text": "他回复：“我只希望你能幸福。如果可以，请帮我完成一个心愿：在我生日那天，去老城区的钟楼下放一束鸢尾花。那是我想去却从未去过的地方。” 你照做了。在那里，你遇到了一个正在画鸢尾花的年轻人，他抬头看你，笑了。",
+      "options": [
+        {
+          "text": "🌼 和他交谈，发现他就是年轻时的阿昭？",
+          "nextNode": "ending_paradox",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_paradox": {
+      "id": "ending_paradox",
+      "text": "那个年轻人说他叫程昭，今天是他18岁生日。你颤抖着问：“你喜欢写日记吗？” 他摇头：“不，但最近总想去旧书店逛逛。” 你忽然明白了——你正在创造那个循环。你笑着递给他一束鸢尾花：“有人托我送给你。”\n\n🕰️ 【结局：宿命之环】你既是开端，也是结尾。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "爱是一个圆，没有起点也没有终点。"
+    },
+    "R3_disaster": {
+      "id": "R3_disaster",
+      "text": "你照常和林越去旅行，结果途中真的出了车祸。你轻伤，但林越重伤。躺在医院里，你想起阿昭的警告，后悔莫及。你拿出日记，写道：“对不起，我该相信你的。” 第二天，回信只有一句：“没关系，活着就好。以后要小心。”",
+      "options": [
+        {
+          "text": "❤️ 从今往后，完全相信他",
+          "nextNode": "R3_believe",
+          "flagsToSet": { "belief": 50 }
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_burn": {
+      "id": "ending_burn",
+      "text": "你将日记付之一炬，火光中似乎有字迹浮现：“再见，苏晚。” 之后你偶尔会想起那些预言，但再也没收到任何来信。生活恢复了平静，但你总觉得心里缺了一块。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：焚书】有些奇迹，经不起怀疑。"
+    }
+  },
+  "endings": {}
+}

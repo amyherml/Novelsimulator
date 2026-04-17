@@ -1,0 +1,164 @@
+{
+  "meta": {
+    "storyId": "M1",
+    "title": "雨夜图书馆 · 死亡留言",
+    "type": "mystery",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "雨夜，老图书馆中发现一本日记，记载了一起未被破获的谋杀案。",
+    "tags": ["谋杀", "日记", "雨夜"]
+  },
+  "startNodeId": "M1_start",
+  "globalFlags": {
+    "trustPolice": false,
+    "foundEvidence": false,
+    "confronted": false
+  },
+  "nodes": {
+    "M1_start": {
+      "id": "M1_start",
+      "text": "雨点敲打着图书馆的玻璃穹顶。你因为躲雨闯入了这间闭馆的老图书馆。在角落的书架上，你发现一本皮质封面的日记，扉页上写着：“如果有人读到这些，请帮我找出真相——陈雅，2019.3.15。” 你翻开日记，里面记录了她对丈夫的恐惧，以及最后一句：“如果他发现我知道，他会杀了我。” 而今天，正是2019年3月15日——三年前的今天，陈雅失踪了，至今未破案。",
+      "options": [
+        {
+          "text": "📖 继续读日记，寻找线索",
+          "nextNode": "M1_read_diary",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📞 立刻报警",
+          "nextNode": "M1_call_police",
+          "flagsToSet": { "trustPolice": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_read_diary": {
+      "id": "M1_read_diary",
+      "text": "日记后面夹着一张照片：陈雅和丈夫林建国的合影，照片背面写着“他书房抽屉的密码是1017”。你决定去林建国的书房看看。",
+      "options": [
+        {
+          "text": "🔍 去林建国家（地址在日记里）",
+          "nextNode": "M1_house",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📸 先拍下日记内容，再报警",
+          "nextNode": "M1_photo_police",
+          "flagsToSet": { "trustPolice": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_call_police": {
+      "id": "M1_call_police",
+      "text": "警察来了，拿走日记，说会调查。但几天后，你得知林建国被释放，理由是证据不足。你心有不甘。",
+      "options": [
+        {
+          "text": "🕵️ 自己调查",
+          "nextNode": "M1_house",
+          "flagsToSet": { "trustPolice": false }
+        },
+        {
+          "text": "😔 放弃，相信司法",
+          "nextNode": "ending_unsolved",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_photo_police": {
+      "id": "M1_photo_police",
+      "text": "警察拿到照片和日记，这次他们搜查了林建国的家，在书房抽屉里发现了一件带血的女式外套。林建国被捕。",
+      "options": [
+        {
+          "text": "🏆 结局",
+          "nextNode": "ending_justice",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_house": {
+      "id": "M1_house",
+      "text": "你趁林建国不在家，溜进书房。输入密码1017，抽屉打开，里面有一本账本和一封遗书。遗书是陈雅写的，她说林建国长期家暴，她打算逃跑。而账本记录着林建国的非法交易。",
+      "options": [
+        {
+          "text": "📦 拿走账本和遗书",
+          "nextNode": "M1_evidence",
+          "flagsToSet": { "foundEvidence": true }
+        },
+        {
+          "text": "📷 拍照留证，放回原处",
+          "nextNode": "M1_evidence_photo",
+          "flagsToSet": { "foundEvidence": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_evidence": {
+      "id": "M1_evidence",
+      "text": "你刚出门，迎面撞上回家的林建国。他看见你手里的东西，脸色大变：“你是谁？把东西还给我！”",
+      "options": [
+        {
+          "text": "🏃 逃跑",
+          "nextNode": "M1_escape",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🗣️ 对峙，大声呼救",
+          "nextNode": "M1_confront",
+          "flagsToSet": { "confronted": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_evidence_photo": {
+      "id": "M1_evidence_photo",
+      "text": "你悄悄离开，把照片发给警方匿名邮箱。第二天，林建国被捕。在审讯中，他供认了杀害陈雅的罪行。",
+      "options": [
+        {
+          "text": "🔚 结局",
+          "nextNode": "ending_anonymous",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M1_escape": {
+      "id": "M1_escape",
+      "text": "你狂奔出小区，报警。警察赶到时，林建国已经销毁了账本，但遗书还在你手中。凭借遗书，法院最终判他有罪。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：正义虽迟但到】你为陈雅讨回了公道。"
+    },
+    "M1_confront": {
+      "id": "M1_confront",
+      "text": "你大声喊叫，邻居听到后报警。林建国试图逃跑，被赶来的警察抓获。账本和遗书成为铁证。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：直面恶魔】勇气让真相大白。"
+    },
+    "ending_unsolved": {
+      "id": "ending_unsolved",
+      "text": "此案成为悬案。多年后你路过图书馆，还会想起那本日记，但再也找不到它了。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：未竟之事】真相沉睡于雨夜。"
+    },
+    "ending_justice": {
+      "id": "ending_justice",
+      "text": "林建国被判无期徒刑。你在法庭上看到了陈雅的母亲，她对你深深鞠躬。雨停了。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：雨过天晴】正义得以伸张。"
+    },
+    "ending_anonymous": {
+      "id": "ending_anonymous",
+      "text": "你从未公开身份，但你知道，那个雨夜你改变了一切。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：无名英雄】沉默的守护。"
+    }
+  },
+  "endings": {}
+}

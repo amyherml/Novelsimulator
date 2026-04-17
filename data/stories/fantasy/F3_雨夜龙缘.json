@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "storyId": "F3",
+    "title": "雨夜龙缘 · 龙族新娘",
+    "type": "fantasy",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "雨夜在图书馆捡到一枚龙鳞，穿越到龙族世界成为龙王的祭品新娘，却与龙王相恋。",
+    "tags": ["穿越", "龙族", "玄幻", "人龙恋"]
+  },
+  "startNodeId": "F3_start",
+  "globalFlags": {
+    "dragonTrust": 0,
+    "foundProphecy": false,
+    "sacrificed": false
+  },
+  "nodes": {
+    "F3_start": {
+      "id": "F3_start",
+      "text": "雨夜，你在图书馆的地板上捡到一片闪着金光的鳞片。刚拿起来，你便被吸入一个漩涡——醒来时，你身披白纱，躺在一个巨大的祭坛上。周围是奇异的人形生物，头顶有龙角。一个威严的声音说：“百年一度的龙族祭品，献给龙王大人。” 你成了龙族的新娘，要被献祭给沉睡的龙王。",
+      "options": [
+        {
+          "text": "😱 尖叫反抗",
+          "nextNode": "F3_resist",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🧐 冷静观察，寻找逃跑机会",
+          "nextNode": "F3_observe_dragon",
+          "flagsToSet": { "dragonTrust": 10 }
+        }
+      ],
+      "isEnding": false
+    },
+    "F3_resist": {
+      "id": "F3_resist",
+      "text": "你的反抗惊动了龙王。他从沉睡中醒来，化为人形——一个银发金瞳的俊美男子。他皱眉：“祭品从未如此吵闹。有趣。” 他挥手让族人退下，留下你。",
+      "options": [
+        {
+          "text": "🗣️ 质问为何要活人祭",
+          "nextNode": "F3_ask",
+          "flagsToSet": {}
+        },
+        {
+          "text": "😭 哭泣求饶",
+          "nextNode": "F3_plead_dragon",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F3_observe_dragon": {
+      "id": "F3_observe_dragon",
+      "text": "你安静地站在祭坛上，发现龙族并不邪恶，他们只是需要龙王的灵力来保护领地。而祭品其实是自愿的，只是你被误抓。龙王出现，看出你不是这个世界的人。",
+      "options": [
+        {
+          "text": "🤝 和他谈判，用现代知识换自由",
+          "nextNode": "F3_negotiate",
+          "flagsToSet": { "dragonTrust": 20 }
+        }
+      ],
+      "isEnding": false
+    },
+    "F3_ask": {
+      "id": "F3_ask",
+      "text": "龙王叹息：“我的力量在衰退，需要龙族血脉的献祭才能延续。但我不想杀人。你愿意帮我寻找替代方法吗？” 你点头。",
+      "options": [
+        {
+          "text": "🔬 用科学方法研究龙力",
+          "nextNode": "F3_research",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F3_research": {
+      "id": "F3_research",
+      "text": "你发现龙力与电磁场有关，用现代物理知识制造了一个能量转换器。龙王恢复了力量，不再需要祭品。他感激你，并爱上了你的智慧。",
+      "options": [
+        {
+          "text": "❤️ 接受他的爱，留在龙族",
+          "nextNode": "ending_dragon_queen",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🌍 请求回到现代",
+          "nextNode": "ending_return_home",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_dragon_queen": {
+      "id": "ending_dragon_queen",
+      "text": "你成了龙后，帮助龙族与人类和平共处。龙王为你举办了一场盛大的婚礼，整个龙族欢呼。你们生下半龙半人的孩子，幸福一生。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：龙后传奇】人龙之恋，万世传颂。"
+    },
+    "ending_return_home": {
+      "id": "ending_return_home",
+      "text": "龙王用法力送你回现代。你在图书馆醒来，手中还握着那片龙鳞。后来你成了奇幻小说家，写下的故事就是你的亲身经历。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：异世回忆】爱化作文字，永存心间。"
+    },
+    "F3_negotiate": {
+      "id": "F3_negotiate",
+      "text": "你帮龙王改良了武器，击退了入侵的魔族。龙王对你刮目相看，渐渐倾心。一天，他带你去龙族的圣地，那里刻着古老的预言：“异世之女将成龙王之妻，永世昌盛。”",
+      "options": [
+        {
+          "text": "💒 顺应预言，嫁给他",
+          "nextNode": "ending_dragon_queen",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤔 拒绝，认为预言不可信",
+          "nextNode": "ending_alone",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_alone": {
+      "id": "ending_alone",
+      "text": "你离开龙族，独自在异世界流浪。龙王默默守护你，但你不愿被命运束缚。多年后你成为一名强大的法师，与龙王保持着朋友关系。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：自由之翼】不被预言定义的人生。"
+    },
+    "F3_plead_dragon": {
+      "id": "F3_plead_dragon",
+      "text": "龙王心软，放你离开龙宫。但你发现外面都是荒野，只好回来。龙王笑着说：“外面很危险，留在我身边吧。” 你渐渐依赖他。",
+      "options": [
+        {
+          "text": "😳 答应留下",
+          "nextNode": "ending_dragon_queen",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    }
+  },
+  "endings": {}
+}

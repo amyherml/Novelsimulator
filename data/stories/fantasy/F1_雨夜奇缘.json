@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "storyId": "F1",
+    "title": "雨夜奇缘 · 异世王妃",
+    "type": "fantasy",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "雨夜在图书馆触碰一本古籍，穿越成古代即将和亲的王妃，与冷面王爷展开宿命之恋。",
+    "tags": ["穿越", "古代", "王爷", "爱情"]
+  },
+  "startNodeId": "F1_start",
+  "globalFlags": {
+    "trustPrince": 0,
+    "rebellionKnown": false,
+    "choseLove": false
+  },
+  "nodes": {
+    "F1_start": {
+      "id": "F1_start",
+      "text": "雨夜，你为了躲雨跑进一家即将拆迁的旧图书馆。在满是灰尘的书架上，一本无名的古籍突然发光。你伸手触碰，一阵天旋地转——醒来时，你躺在华丽的古床上，身穿大红嫁衣。一个冷峻的男人站在窗前，背对着你说：“既然你是和亲的王妃，就别想逃。” 你发现自己穿越了，成了北渊国即将嫁给摄政王的女人。",
+      "options": [
+        {
+          "text": "👑 先观察，假装顺从",
+          "nextNode": "F1_observe",
+          "flagsToSet": { "trustPrince": 10 }
+        },
+        {
+          "text": "😤 直接反抗：我不是你的王妃",
+          "nextNode": "F1_resist",
+          "flagsToSet": { "trustPrince": -10 }
+        }
+      ],
+      "isEnding": false
+    },
+    "F1_observe": {
+      "id": "F1_observe",
+      "text": "你冷静下来，开始适应王妃的生活。摄政王萧寒对你冷冰冰，但暗中却派人保护你。你在王府发现一本日记，记载了前王妃的死因——她发现了萧寒要谋反的秘密，被奸人所害。",
+      "options": [
+        {
+          "text": "📖 拿着日记质问萧寒",
+          "nextNode": "F1_confront",
+          "flagsToSet": { "rebellionKnown": true }
+        },
+        {
+          "text": "🤫 装作不知，暗中调查",
+          "nextNode": "F1_secret",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F1_resist": {
+      "id": "F1_resist",
+      "text": "萧寒冷笑道：“不管你是谁，现在你已经是我的王妃。外面都是敌人，只有我能护你。” 你不信，偷偷逃出王府，却遭遇刺客。危急时刻，萧寒出现救了你。",
+      "options": [
+        {
+          "text": "🙏 感谢他，答应留下",
+          "nextNode": "F1_observe",
+          "flagsToSet": { "trustPrince": 20 }
+        },
+        {
+          "text": "💔 仍然想逃",
+          "nextNode": "ending_escape_fail",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F1_confront": {
+      "id": "F1_confront",
+      "text": "萧寒看到日记，脸色大变：“你知道了？没错，我确实在暗中积蓄力量，因为皇帝昏庸，残害忠良。我并非要谋反，而是清君侧。” 他握住你的手：“你愿意帮我吗？”",
+      "options": [
+        {
+          "text": "💪 愿意帮他，成为盟友",
+          "nextNode": "F1_ally",
+          "flagsToSet": { "choseLove": true }
+        },
+        {
+          "text": "😨 害怕，想回现代",
+          "nextNode": "F1_homesick",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F1_ally": {
+      "id": "F1_ally",
+      "text": "你用现代知识帮他改良兵器、传递情报。朝夕相处中，你们相爱了。决战之夜，萧寒受伤，你用自己的血激活了古籍的力量，召唤出一道光墙挡住敌军。皇帝被推翻，萧寒成为新皇，封你为后。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：帝后同心】现代智慧与古代深情，共治天下。"
+    },
+    "F1_homesick": {
+      "id": "F1_homesick",
+      "text": "你找到古籍，试图返回现代。萧寒没有阻止，只是在你消失前说：“若有机会，回来看看。” 你回到现代图书馆，一切如旧，但手上多了一枚玉戒指。后来你研究古籍，发现可以自由穿梭。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：双时空之恋】在两个世界，爱从未断联。"
+    },
+    "F1_secret": {
+      "id": "F1_secret",
+      "text": "你暗中找到前王妃的贴身丫鬟，得知萧寒其实是被冤枉的，真正的叛徒是太傅。你设计让太傅暴露，萧寒感激你，向你求婚。",
+      "options": [
+        {
+          "text": "💍 答应他",
+          "nextNode": "ending_happy_marriage",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🌍 想回现代",
+          "nextNode": "F1_homesick",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_happy_marriage": {
+      "id": "ending_happy_marriage",
+      "text": "你们举办了一场盛大的婚礼。萧寒为你废除后宫，一生只爱你一人。你成了百姓爱戴的皇后，用现代知识改善民生。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：一生一世一双人】跨越时空的完美爱情。"
+    },
+    "ending_escape_fail": {
+      "id": "ending_escape_fail",
+      "text": "你再次逃跑，这次被敌人抓住。萧寒为了救你，中了埋伏，重伤而死。你悔恨终生，孤独地老在王府。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：悔恨终生】若当初信任他……"
+    }
+  },
+  "endings": {}
+}

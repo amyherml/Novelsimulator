@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "storyId": "R2",
+    "title": "错误的结婚对象",
+    "type": "romance",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "婚礼当天你逃婚了，却在海边旅馆与另一个逃婚者被误认为未婚夫妻。",
+    "tags": ["逃婚", "乌龙", "假戏真做"]
+  },
+  "startNodeId": "R2_start",
+  "globalFlags": {
+    "trust": 0,
+    "cooperation": false,
+    "fakeCouple": false,
+    "truthKnown": false
+  },
+  "nodes": {
+    "R2_start": {
+      "id": "R2_start",
+      "text": "婚礼的钟声敲响时，你却没有站在红毯上。你穿着婚纱，却坐上了一辆往海边开的出租车。司机问你：“去哪个酒店？”你随便报了一个名字。一小时后，你站在“潮汐旅馆”的前台，浑身是汗。服务员微笑着说：“您的未婚夫已经在房间里等了一晚，这是房卡。” 你愣住了——你根本没有未婚夫。",
+      "options": [
+        {
+          "text": "🛏️ 先去看看再说",
+          "nextNode": "R2_meet_stranger",
+          "flagsToSet": {}
+        },
+        {
+          "text": "❓ 追问前台是不是搞错了",
+          "nextNode": "R2_confused",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_meet_stranger": {
+      "id": "R2_meet_stranger",
+      "text": "你深吸一口气，刷卡开门。房间里坐着一个西装革履的男人，领带松松垮垮，神情疲惫。他抬头看见你，也吓了一跳：“你……你是？” 你们几乎同时开口：“你不是我未婚妻/夫！”",
+      "options": [
+        {
+          "text": "😤 愤怒地质问他：你是谁？",
+          "nextNode": "R2_angry",
+          "flagsToSet": { "trust": -10 }
+        },
+        {
+          "text": "😅 尴尬地笑：看来我们都逃婚了",
+          "nextNode": "R2_awkward",
+          "flagsToSet": { "trust": 10 }
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_confused": {
+      "id": "R2_confused",
+      "text": "你坚持说前台搞错了，但服务员查了系统：“没错，林先生预订的蜜月套房，备注写着‘给最爱的她’。” 你正想解释，一个男人从电梯里走出来，看见你便说：“终于来了，我都等急了。”",
+      "options": [
+        {
+          "text": "🤨 直接说：我不认识你",
+          "nextNode": "R2_stranger_approach",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤐 先跟他上楼再说",
+          "nextNode": "R2_meet_stranger",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_angry": {
+      "id": "R2_angry",
+      "text": "男人连忙解释：“我叫陆时安，今天本来要跟家里安排的联姻对象结婚，但我实在不想娶一个没见过面的人，就逃到了这里。这房间是我订的，但前台可能搞混了，以为你会来。” 你渐渐平静下来。",
+      "options": [
+        {
+          "text": "💢 那我现在走",
+          "nextNode": "R2_leave_alone",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🍷 坐下聊聊，反正都逃了",
+          "nextNode": "R2_talk",
+          "flagsToSet": { "cooperation": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_awkward": {
+      "id": "R2_awkward",
+      "text": "他苦笑：“看来我们同病相怜。我叫陆时安，你呢？” 你报上名字。两人沉默片刻，他提议：“反正都逃了，不如一起喝一杯？”",
+      "options": [
+        {
+          "text": "🥂 好，庆祝自由",
+          "nextNode": "R2_drink",
+          "flagsToSet": { "cooperation": true, "trust": 15 }
+        },
+        {
+          "text": "🚪 不了，我想一个人静静",
+          "nextNode": "R2_leave_alone",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_stranger_approach": {
+      "id": "R2_stranger_approach",
+      "text": "男人愣了一下，然后低声说：“别声张，我也是逃婚的。帮个忙，假装是我未婚妻，应付一下家里催婚的电话，事后我会感谢你。” 他眼神诚恳。",
+      "options": [
+        {
+          "text": "🤝 答应假扮（反正无处可去）",
+          "nextNode": "R2_fake_start",
+          "flagsToSet": { "fakeCouple": true, "cooperation": true }
+        },
+        {
+          "text": "🙅 拒绝，我不想惹麻烦",
+          "nextNode": "R2_leave_alone",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_leave_alone": {
+      "id": "R2_leave_alone",
+      "text": "你转身离开旅馆，独自走在海边。海风很大，你裹紧婚纱，忽然觉得有点后悔。也许那个人并不坏，只是你们相遇的时机太荒唐。多年后，你偶尔会想起那个逃婚的男人，但再也没有见过他。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：独自远行】自由，但带着一丝遗憾。"
+    },
+    "R2_talk": {
+      "id": "R2_talk",
+      "text": "你们坐在阳台，看着海景，聊起各自逃婚的原因。原来他家里逼他娶商业伙伴的女儿，而你则是被父母安排相亲，对方大你十岁。越聊越投机，你发现他其实很幽默。",
+      "options": [
+        {
+          "text": "💡 提议：我们假装情侣，骗过双方家庭",
+          "nextNode": "R2_fake_plan",
+          "flagsToSet": { "fakeCouple": true }
+        },
+        {
+          "text": "❤️ 说实话：我好像对你有好感",
+          "nextNode": "R2_confession",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_drink": {
+      "id": "R2_drink",
+      "text": "你们在旅馆酒吧喝到微醺，他讲起自己的梦想是开一家独立书店，而你一直想环游世界。夜风温柔，他忽然说：“如果我不是今天的新郎，你也不是新娘，我们会不会不一样？”",
+      "options": [
+        {
+          "text": "🌊 那就当今天是我们第一次相遇",
+          "nextNode": "R2_confession",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤔 也许我们该保持距离",
+          "nextNode": "R2_friend_zone",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_fake_start": {
+      "id": "R2_fake_start",
+      "text": "你们开始假扮情侣，一起拍照发给家人，甚至接了视频电话。几天相处下来，你们从陌生到熟悉，竟然真的有了默契。",
+      "options": [
+        {
+          "text": "🎭 继续假扮，直到风波过去",
+          "nextNode": "R2_fake_deep",
+          "flagsToSet": {}
+        },
+        {
+          "text": "💔 坦白：我不想骗下去了",
+          "nextNode": "R2_truth_talk",
+          "flagsToSet": { "truthKnown": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_fake_plan": {
+      "id": "R2_fake_plan",
+      "text": "他眼睛一亮：“好主意！我们可以互相帮忙应付催婚，等风头过了再和平‘分手’。” 你们击掌为盟，开始制定计划。",
+      "options": [
+        {
+          "text": "📸 先拍几张‘恩爱’照片发朋友圈",
+          "nextNode": "R2_fake_deep",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📝 签个假情侣协议，防止真动心",
+          "nextNode": "R2_contract",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_fake_deep": {
+      "id": "R2_fake_deep",
+      "text": "接下来的日子，你们一起看日出、逛夜市、聊童年。你发现自己越来越期待他的消息，而他也总是不经意间护着你。一天晚上，他忽然认真地说：“如果我们不是假装的就好了。”",
+      "options": [
+        {
+          "text": "😳 其实我也是这么想的",
+          "nextNode": "R2_real_feelings",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📅 说好的协议，别越界",
+          "nextNode": "R2_friend_zone",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_contract": {
+      "id": "R2_contract",
+      "text": "你们真的写了一份协议：不得真动心、不得干涉私生活、三个月后自动解除。签完字，两人对视，忍不住大笑起来。",
+      "options": [
+        {
+          "text": "📖 开始‘营业’",
+          "nextNode": "R2_fake_deep",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_confession": {
+      "id": "R2_confession",
+      "text": "空气安静了几秒。他轻轻握住你的手：“其实从你推开房门那一刻，我就觉得，也许逃婚是我这辈子最正确的决定。”",
+      "options": [
+        {
+          "text": "💍 那我们就不要假装了，真的在一起吧",
+          "nextNode": "ending_true_love",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_true_love": {
+      "id": "ending_true_love",
+      "text": "你们取消了原本的婚礼，在同一个海边旅馆举办了一场只属于两人的小型婚礼。没有家族压力，没有商业联姻，只有海风和真心。\n\n💒 【结局：逃婚的礼物】有时逃离错误，是为了遇见对的人。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "真爱从不按计划出现。"
+    },
+    "R2_truth_talk": {
+      "id": "R2_truth_talk",
+      "text": "你们坐在海边，坦诚相待。他承认一开始只是想利用你应付家里，但后来真的动了心。你说你也一样。",
+      "options": [
+        {
+          "text": "🤝 那就重新开始，不戴面具",
+          "nextNode": "ending_true_love",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🚶 还是做回陌生人吧",
+          "nextNode": "R2_leave_alone",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R2_friend_zone": {
+      "id": "R2_friend_zone",
+      "text": "他尊重你的决定。你们成了好朋友，偶尔联系，各自找到了真正适合的人。多年后你收到他的婚礼请柬，新娘很像你，但你知道，那是最好的结局。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：最佳损友】没有成为恋人，却是一生的知己。"
+    },
+    "R2_real_feelings": {
+      "id": "R2_real_feelings",
+      "text": "他笑了：“那我们就把假情侣变成真的。” 你们相拥在星空下。后来，你们一起开了那家书店，而逃婚的故事成了顾客最爱听的传奇。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：假戏真做】从乌龙开始，以真爱结束。"
+    }
+  },
+  "endings": {}
+}
