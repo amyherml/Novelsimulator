@@ -1,12 +1,10 @@
 // main.js - 多类型互动叙事游戏引擎（浪漫/悬疑/玄幻）
 (function() {
-    // ---------- 配置 ----------
     const CONFIG = {
         dataPath: 'data/stories/',
         indexUrl: 'data/storyIndex.json'
     };
 
-    // 游戏状态
     let currentStory = null;
     let currentNodeId = null;
     let currentFlags = {};
@@ -14,14 +12,12 @@
     let currentType = null;
     let currentStoryId = null;
 
-    // DOM 元素
     const storyTitleEl = document.getElementById('storyTitle');
     const storyTextEl = document.getElementById('storyText');
     const optionsArea = document.getElementById('optionsArea');
     const restartBtn = document.getElementById('restartBtn');
     const resetGameBtn = document.getElementById('resetGameBtn');
 
-    // ---------- 辅助函数 ----------
     function showError(msg) {
         storyTextEl.innerText = `⚠️ 错误：${msg}\n请刷新页面重试。`;
         optionsArea.innerHTML = '<button class="option-btn" onclick="location.reload()">重新加载</button>';
@@ -132,6 +128,7 @@
             storyTitleEl.innerText = storyData.meta?.title || '互动故事';
             renderCurrentNode();
             saveGame();
+            enableBottomButtons();  // ✅ 修复：启用底部按钮
         } catch (err) {
             console.error(err);
             showError(`无法加载故事 ${fileName}：${err.message}`);
@@ -216,7 +213,6 @@
         return false;
     }
 
-    // 修改：换故事 → 直接返回类型选择界面
     function changeToAnotherStory() {
         clearSave();
         showTypeSelection();
