@@ -1,5 +1,38 @@
 // main.js - 多类型互动叙事游戏引擎（浪漫/悬疑/玄幻）
 (function() {
+        // 自定义确认框（替代原生 confirm）
+    let pendingConfirmCallback = null;
+
+    function showConfirm(message, onOk, onCancel) {
+        const overlay = document.getElementById('customConfirm');
+        const msgEl = document.getElementById('confirmMessage');
+        if (!overlay || !msgEl) return;
+        msgEl.innerText = message;
+        overlay.classList.add('active');
+        
+        const okHandler = () => {
+            overlay.classList.remove('active');
+            if (onOk) onOk();
+            cleanup();
+        };
+        const cancelHandler = () => {
+            overlay.classList.remove('active');
+            if (onCancel) onCancel();
+            cleanup();
+        };
+        
+        function cleanup() {
+            const okBtn = document.getElementById('confirmOk');
+            const cancelBtn = document.getElementById('confirmCancel');
+            if (okBtn) okBtn.removeEventListener('click', okHandler);
+            if (cancelBtn) cancelBtn.removeEventListener('click', cancelHandler);
+        }
+        
+        const okBtn = document.getElementById('confirmOk');
+        const cancelBtn = document.getElementById('confirmCancel');
+        if (okBtn) okBtn.addEventListener('click', okHandler);
+        if (cancelBtn) cancelBtn.addEventListener('click', cancelHandler);
+    }
     const CONFIG = {
         dataPath: 'data/stories/',
         indexUrl: 'data/storyIndex.json'
@@ -240,16 +273,16 @@
 
     function bindEvents() {
         restartBtn.onclick = () => {
-            if (currentStory && confirm('重来一次会丢失当前进度，确定吗？')) {
-                resetGameState();
-            } else if (!currentStory) {
+            if (currentStory) {
+                showConfirm('重来一次会丢失当前进度，确定吗？', () => resetGameState());
+            } else {
                 showTypeSelection();
             }
         };
         resetGameBtn.onclick = () => {
-            if (currentStory && confirm('换一个故事会丢失当前进度，确定吗？')) {
-                changeToAnotherStory();
-            } else if (!currentStory) {
+            if (currentStory) {
+                showConfirm('换一个故事会丢失当前进度，确定吗？', () => changeToAnotherStory());
+            } else {
                 showTypeSelection();
             }
         };

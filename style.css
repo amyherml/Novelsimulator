@@ -288,3 +288,75 @@ footer {
     font-style: italic;
     border-left: 6px solid var(--title-border);
 }
+
+/* 自定义模态框 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-container {
+    background: var(--card-bg);
+    border-radius: 32px;
+    max-width: 300px;
+    width: 80%;
+    padding: 24px 20px 20px;
+    text-align: center;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+    border: 1px solid var(--card-border);
+}
+
+.modal-message {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin-bottom: 24px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-btn {
+    background: var(--option-btn-bg);
+    border: 1px solid var(--option-btn-border);
+    border-radius: 60px;
+    padding: 8px 20px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    color: var(--option-btn-text);
+}
+
+.modal-btn:hover {
+    background: var(--option-btn-hover-bg);
+    border-color: var(--option-btn-hover-border);
+    transform: translateY(-1px);
+}
+
+.modal-btn.confirm {
+    background: var(--title-gradient-start);
+    color: white;
+    border: none;
+}
