@@ -54,6 +54,23 @@
         Object.assign(currentFlags, flagsToSet);
     }
 
+    // 保存当前结局为 TXT 文件
+    function saveStoryAsTxt(endingText) {
+        if (!currentStory) return;
+        const title = currentStory.meta?.title || '互动故事';
+        const author = currentStory.meta?.author || '匿名作者';
+        const content = `《${title}》\n作者：${author}\n\n${endingText}\n\n—— 故事由你书写，感谢游玩 ——`;
+        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.href = url;
+        link.download = `${title}_结局.txt`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    }
+
     function renderCurrentNode() {
         if (!currentStory) return;
         const node = currentStory.nodes[currentNodeId];
@@ -74,10 +91,12 @@
                 <button class="option-btn" id="playAgainBtn">📖 重新书写结局</button>
                 <button class="option-btn" id="newStoryBtn">🌸 换一个故事</button>
                 <button class="option-btn" id="changeTypeBtn">🎭 切换类型</button>
+                <button class="option-btn" id="saveTxtBtn">💾 保存故事为TXT</button>
             `;
             document.getElementById('playAgainBtn')?.addEventListener('click', () => resetGameState());
             document.getElementById('newStoryBtn')?.addEventListener('click', () => loadRandomStoryByType(currentType));
             document.getElementById('changeTypeBtn')?.addEventListener('click', () => showTypeSelection());
+            document.getElementById('saveTxtBtn')?.addEventListener('click', () => saveStoryAsTxt(node.text));
             return;
         }
 
@@ -128,7 +147,7 @@
             storyTitleEl.innerText = storyData.meta?.title || '互动故事';
             renderCurrentNode();
             saveGame();
-            enableBottomButtons();  // ✅ 修复：启用底部按钮
+            enableBottomButtons();
         } catch (err) {
             console.error(err);
             showError(`无法加载故事 ${fileName}：${err.message}`);
