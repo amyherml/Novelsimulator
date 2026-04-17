@@ -144,7 +144,8 @@
             gameActive = true;
             clearSave();
             
-            storyTitleEl.innerText = storyData.meta?.title || '互动故事';
+            //storyTitleEl.innerText = storyData.meta?.title || '互动故事';
+            storyTitleEl.innerText = '您的选择将决定故事的走向';
             renderCurrentNode();
             saveGame();
             enableBottomButtons();
