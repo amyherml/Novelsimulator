@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "storyId": "M4",
+    "title": "豪宅谜案",
+    "type": "mystery",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "你在两百平的大床上醒来，身边是一具冰冷的尸体，而你是唯一的嫌疑人。",
+    "tags": ["悬疑", "密室", "失忆"]
+  },
+  "startNodeId": "M4_start",
+  "globalFlags": {
+    "trustPolice": 0,
+    "foundEvidence": false,
+    "confronted": false,
+    "truthKnown": false
+  },
+  "nodes": {
+    "M4_start": {
+      "id": "M4_start",
+      "text": "你在两百平的大床上醒来，丝绸床单冰凉如水。脑袋像被灌了铅，视线模糊。你撑起身子，手碰到一滩黏腻的液体——是血。床的另一侧，一个男人仰面躺着，胸口插着一把匕首，瞳孔涣散。你不认识他。房间奢华得像宫殿，而你的衣服上沾满血迹。门外传来急促的敲门声：“里面的人，请开门！”",
+      "options": [
+        {
+          "text": "🚪 开门，装作惊恐",
+          "nextNode": "M4_open_door",
+          "flagsToSet": { "trustPolice": 10 }
+        },
+        {
+          "text": "🪟 从窗户逃走",
+          "nextNode": "M4_escape_window",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_open_door": {
+      "id": "M4_open_door",
+      "text": "你颤抖着打开门，门外是两名警察。他们看到尸体，立刻将你控制。你大喊“不是我”，但手上的血迹无法解释。审讯室里，探长盯着你：“昨晚的宴会，有人看到你和死者争吵。他叫周成海，是你的丈夫。你不记得了吗？”",
+      "options": [
+        {
+          "text": "😰 我真的失忆了，什么都不记得",
+          "nextNode": "M4_amnesia",
+          "flagsToSet": { "trustPolice": 20 }
+        },
+        {
+          "text": "🤐 保持沉默，要求律师",
+          "nextNode": "M4_silent",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_escape_window": {
+      "id": "M4_escape_window",
+      "text": "你从窗户翻出，跳进花园。脚下是湿软的草坪，你赤脚狂奔。身后警笛响起。你躲进一栋废弃的温室，浑身发抖。口袋里有一部手机，屏幕碎裂但还能用。通讯录里只有一个人：“林律师”。",
+      "options": [
+        {
+          "text": "📞 打电话给林律师",
+          "nextNode": "M4_call_lawyer",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🔍 先翻找手机里的信息",
+          "nextNode": "M4_phone_clues",
+          "flagsToSet": { "foundEvidence": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_amnesia": {
+      "id": "M4_amnesia",
+      "text": "探长皱起眉头：“失忆？这倒是个好借口。不过，监控显示昨晚只有你进出这个房间。还有，你在床头柜上留下了这张纸条。” 他推过来一张照片，上面是你的笔迹：“周成海，你该死。”",
+      "options": [
+        {
+          "text": "😨 那不是我写的！",
+          "nextNode": "M4_forgery",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤔 我需要看到更多证据",
+          "nextNode": "M4_demand_evidence",
+          "flagsToSet": { "trustPolice": -10 }
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_silent": {
+      "id": "M4_silent",
+      "text": "律师到场后，你被保释。律师姓林，是个干练的女人。她告诉你：“周成海是你丈夫，他生前买了巨额保险，受益人是你。警方怀疑你为了钱杀人。但我知道你是被陷害的。”",
+      "options": [
+        {
+          "text": "🔍 帮我查一下周成海的商业伙伴",
+          "nextNode": "M4_investigate_partner",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🕵️‍♀️ 我想自己调查",
+          "nextNode": "M4_self_investigate",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_call_lawyer": {
+      "id": "M4_call_lawyer",
+      "text": "林律师接通电话，声音急促：“你在哪？别乱跑！周成海的事我已经知道。有人想陷害你。真正的凶手是他弟弟周成江，为了争夺家产。你现在去老宅的地下室，那里有证据。”",
+      "options": [
+        {
+          "text": "🏃 立刻去老宅",
+          "nextNode": "M4_old_mansion",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤨 你怎么知道得这么清楚？",
+          "nextNode": "M4_suspect_lawyer",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_phone_clues": {
+      "id": "M4_phone_clues",
+      "text": "你翻看手机，发现一段未发送的录音：“周成江，你要的钱我已经准备好了，明天交易。但如果你敢伤害我妻子，我会让你付出代价。” 这是周成海的声音。原来死者早已预知危险。",
+      "options": [
+        {
+          "text": "🎤 把录音交给警方",
+          "nextNode": "M4_hand_evidence",
+          "flagsToSet": { "foundEvidence": true }
+        },
+        {
+          "text": "🔫 自己去找周成江对峙",
+          "nextNode": "M4_confront_killer",
+          "flagsToSet": { "confronted": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_forgery": {
+      "id": "M4_forgery",
+      "text": "探长冷笑：“笔迹鉴定专家已经确认是你的字迹。不过，如果你能提供更有力的线索，我可以考虑减轻指控。” 你突然想起，昨晚晚宴上有个女人一直盯着你，她的指甲是血红色的。",
+      "options": [
+        {
+          "text": "💅 描述那个红指甲女人",
+          "nextNode": "M4_red_nails",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_red_nails": {
+      "id": "M4_red_nails",
+      "text": "探长脸色一变：“那是周成海的情妇，苏曼。她昨晚也失踪了。你确定是她？” 你点头。警方很快找到苏曼，她承认自己嫉妒周成海娶了你，下药让你昏迷，然后杀死周成海嫁祸给你。",
+      "options": [
+        {
+          "text": "⚖️ 结局",
+          "nextNode": "ending_justice_m4",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_justice_m4": {
+      "id": "ending_justice_m4",
+      "text": "苏曼被捕，你无罪释放。周成海的遗产一半捐给了慈善机构，你带着另一半离开了那座城市。你在两百平的大床上醒来时曾以为那是噩梦，现在噩梦终于结束。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：真相大白】正义虽迟但到。"
+    },
+    "M4_demand_evidence": {
+      "id": "M4_demand_evidence",
+      "text": "探长同意给你24小时。你回到家中，发现书房保险柜被撬开，里面空空如也。你想起周成海有个秘密账本，记录着所有商业对手的把柄。",
+      "options": [
+        {
+          "text": "📒 寻找账本",
+          "nextNode": "M4_find_ledger",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_find_ledger": {
+      "id": "M4_find_ledger",
+      "text": "你在壁炉后的暗格里找到了账本，里面详细记录了周成江贿赂官员的证据。你匿名将账本寄给警方，周成江被捕。他供认为了独吞家产，指使苏曼杀人。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：账本破案】一册账本，揭开阴谋。"
+    },
+    "M4_investigate_partner": {
+      "id": "M4_investigate_partner",
+      "text": "林律师查到了周成海的合伙人陈总，此人负债累累，周成海曾拒绝借款。案发当晚，陈总也在宴会。你决定去他的公司试探。",
+      "options": [
+        {
+          "text": "🏢 假扮记者采访",
+          "nextNode": "M4_fake_reporter",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_fake_reporter": {
+      "id": "M4_fake_reporter",
+      "text": "陈总神色慌张，你故意提及周成海，他脱口而出：“不是我杀的！我只是让他还钱……是周成江干的！” 录音笔记录了一切。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：心理崩溃】凶手意外落网。"
+    },
+    "M4_self_investigate": {
+      "id": "M4_self_investigate",
+      "text": "你回到案发现场，在床底发现一枚袖扣，上面刻着“ZJ”。这是周成江的缩写。你报警，警方逮捕周成江，他承认了一切。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：独自破案】你找回了记忆，也找回了清白。"
+    },
+    "M4_old_mansion": {
+      "id": "M4_old_mansion",
+      "text": "你在老宅地下室找到一箱现金和一把带血的刀。突然，周成江出现在楼梯口：“你果然来了。” 他持刀逼近。",
+      "options": [
+        {
+          "text": "🛡️ 搏斗",
+          "nextNode": "M4_fight_m4",
+          "flagsToSet": {}
+        },
+        {
+          "text": "📞 假装顺从，暗中报警",
+          "nextNode": "M4_trap",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "M4_fight_m4": {
+      "id": "M4_fight_m4",
+      "text": "你学过防身术，夺下刀刺伤周成江。警察赶到，你成功自救。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：女侠】亲手擒凶。"
+    },
+    "M4_trap": {
+      "id": "M4_trap",
+      "text": "你拖延时间，警方破门而入，周成江被擒。你安然无恙。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：智取】不流血的成功。"
+    },
+    "M4_suspect_lawyer": {
+      "id": "M4_suspect_lawyer",
+      "text": "林律师沉默片刻：“因为我就是周成海的亲妹妹。我一直在暗中调查。现在你相信我了吗？” 你点头，跟她去了老宅。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：兄妹复仇】亲情与正义的胜利。"
+    },
+    "M4_hand_evidence": {
+      "id": "M4_hand_evidence",
+      "text": "警方根据录音逮捕周成江，你洗脱嫌疑。周成江被判无期，你继承了部分财产，开始新生活。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：证据为王】正义无需暴力。"
+    },
+    "M4_confront_killer": {
+      "id": "M4_confront_killer",
+      "text": "你约周成江在废弃工厂见面。他带着刀来了，你早有准备，用手机直播了全过程。他被赶来的警察抓获。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：直播擒凶】现代科技破案。"
+    }
+  },
+  "endings": {}
+}

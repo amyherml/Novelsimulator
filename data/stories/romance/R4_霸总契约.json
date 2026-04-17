@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "storyId": "R4",
+    "title": "霸总的契约新娘",
+    "type": "romance",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "你在两百平的大床上醒来，身边是一个陌生而英俊的男人，他说你是他的契约新娘。",
+    "tags": ["契约婚姻", "霸总", "先婚后爱"]
+  },
+  "startNodeId": "R4_start",
+  "globalFlags": {
+    "trustCEO": 0,
+    "love": false,
+    "secretKnown": false,
+    "stay": false
+  },
+  "nodes": {
+    "R4_start": {
+      "id": "R4_start",
+      "text": "你在两百平的大床上醒来，阳光透过落地窗洒在丝绸被面上。一个男人背对着你站在窗前，西装笔挺，背影冷峻。他转过身，剑眉星目，却面无表情：“醒了？从今天起，你是我的契约妻子。为期一年，酬金一千万。不要动心，不要过问我的事。” 你瞪大眼睛，一段模糊的记忆浮现：你为了救重病的弟弟，签下了这份契约。",
+      "options": [
+        {
+          "text": "🤐 默然接受，扮演好妻子",
+          "nextNode": "R4_accept",
+          "flagsToSet": { "trustCEO": 10 }
+        },
+        {
+          "text": "😤 反抗，要求解约",
+          "nextNode": "R4_resist",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R4_accept": {
+      "id": "R4_accept",
+      "text": "你搬进他的别墅，开始假装恩爱。他叫顾深，是顾氏集团总裁，外界传闻他冷酷无情。但某天深夜，你撞见他独自在书房对着一张照片落泪。",
+      "options": [
+        {
+          "text": "🕵️‍♀️ 悄悄调查照片上的人",
+          "nextNode": "R4_investigate_photo",
+          "flagsToSet": { "secretKnown": true }
+        },
+        {
+          "text": "🤫 假装没看见，保持距离",
+          "nextNode": "R4_keep_distance",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R4_resist": {
+      "id": "R4_resist",
+      "text": "顾深冷笑：“违约金五千万，你付得起吗？” 你沉默。他走近，捏住你的下巴：“既然签了，就乖乖配合。不过……如果你能帮我查清一件事，我可以提前解约。”",
+      "options": [
+        {
+          "text": "🔍 答应帮他调查",
+          "nextNode": "R4_help_investigate",
+          "flagsToSet": { "trustCEO": 20 }
+        },
+        {
+          "text": "💔 继续要求解约",
+          "nextNode": "ending_break_contract",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "R4_investigate_photo": {
+      "id": "R4_investigate_photo",
+      "text": "你查出照片上的女人是顾深的初恋，三年前死于一场车祸，肇事者逃逸。顾深一直怀疑是商业对手所为。你决定帮他找出真相。",
+      "options": [
+        {
+          "text": "🕵️ 暗中搜集证据",
+          "nextNode": "R4_gather_evidence",
+          "flagsToSet": {}
+        },
+        {
+          "text": "💬 直接问他细节",
+          "nextNode": "R4_ask_directly",
+          "flagsToSet": { "trustCEO": 30 }
+        }
+      ],
+      "isEnding": false
+    },
+    "R4_gather_evidence": {
+      "id": "R4_gather_evidence",
+      "text": "你利用记者身份（你原本是报社实习生）查到了肇事者是顾深的竞争对手王总。你悄悄把证据放在顾深桌上。他发现了，眼神复杂：“谢谢你。”",
+      "options": [
+        {
+          "text": "❤️ 告诉他：我想帮你，不只是契约",
+          "nextNode": "R4_confess_feelings",
+          "flagsToSet": { "love": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "R4_confess_feelings": {
+      "id": "R4_confess_feelings",
+      "text": "顾深怔住，然后紧紧抱住你：“我本以为自己不会再爱了。” 你们的关系从此改变。后来王总被捕，顾深向你求婚，不再是契约。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：真爱无敌】从契约到真心。"
+    },
+    "R4_ask_directly": {
+      "id": "R4_ask_directly",
+      "text": "顾深沉默良久，终于开口：“她是我未婚妻，被王总害死的。我查了三年都没有确凿证据。” 你握住他的手：“让我试试。” 你利用报社资源，找到了当年的目击者。",
+      "options": [
+        {
+          "text": "📰 将证据公开",
+          "nextNode": "ending_justice_r4",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_justice_r4": {
+      "id": "ending_justice_r4",
+      "text": "王总被捕，顾深了却心愿。他取消了契约，但请求你留下：“不是因为钱，是因为你。” 你答应了。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：救赎之恋】治愈彼此。"
+    },
+    "R4_keep_distance": {
+      "id": "R4_keep_distance",
+      "text": "你始终与他保持距离，只履行契约义务。一年期满，他给你支票，你转身离开。走出别墅时，你听到身后传来玻璃碎裂的声音。",
+      "options": [
+        {
+          "text": "🚶 头也不回地走",
+          "nextNode": "ending_departure",
+          "flagsToSet": {}
+        },
+        {
+          "text": "😢 回头看他",
+          "nextNode": "R4_turn_back",
+          "flagsToSet": { "stay": true }
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_departure": {
+      "id": "ending_departure",
+      "text": "你去了另一座城市，成为知名记者。偶尔在新闻上看到顾深，他依然单身。你们错过了彼此，但你知道他曾动过心。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：擦肩而过】最熟悉的陌生人。"
+    },
+    "R4_turn_back": {
+      "id": "R4_turn_back",
+      "text": "你看到他蹲在地上，手里攥着那张照片。你走过去，抱住他：“我不走了。” 他哽咽：“对不起，让你受委屈了。”",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：回头是岸】迟来的告白。"
+    },
+    "R4_help_investigate": {
+      "id": "R4_help_investigate",
+      "text": "你帮他查出公司内鬼，原来是他的助理勾结外人。顾深对你刮目相看，开始主动关心你。一次酒会上，你替他挡酒，他背你回家，轻声说：“你比契约重要。”",
+      "options": [
+        {
+          "text": "💋 吻他",
+          "nextNode": "ending_kiss",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_kiss": {
+      "id": "ending_kiss",
+      "text": "你们相恋了。他撕毁契约，说：“从今以后，你是我的未婚妻，不是契约新娘。”",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：契约之外】爱情不期而至。"
+    },
+    "ending_break_contract": {
+      "id": "ending_break_contract",
+      "text": "你四处借钱凑齐违约金，还给了顾深。他惊讶于你的倔强，但也尊重你的选择。你们再无交集。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：自由之身】虽败犹荣。"
+    }
+  },
+  "endings": {}
+}

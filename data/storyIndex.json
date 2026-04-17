@@ -3,15 +3,19 @@
     { "id": "R1", "title": "雨夜图书馆", "file": "R1_雨夜图书馆.json" },
     { "id": "R2", "title": "错误的结婚对象", "file": "R2_错误的结婚对象.json" },
     { "id": "R3", "title": "时空情书", "file": "R3_时空情书.json" }
+    { "id": "R4", "title": "霸总的契约新娘", "file": "R4_霸总契约.json" }
+    
   ],
   "mystery": [
     { "id": "M1", "title": "雨夜图书馆 · 死亡留言", "file": "M1_雨夜图书馆.json" },
     { "id": "M2", "title": "错误的新娘 · 消失的宾客", "file": "M2_错误的新娘.json" },
     { "id": "M3", "title": "时空来信 · 死亡预告", "file": "M3_时空来信.json" }
+    { "id": "M4", "title": "豪宅谜案", "file": "M4_豪宅谜案.json" }
   ],
   "fantasy": [
     { "id": "F1", "title": "雨夜奇缘 · 异世王妃", "file": "F1_雨夜奇缘.json" },
     { "id": "F2", "title": "雨夜仙缘 · 废柴逆袭", "file": "F2_雨夜仙缘.json" },
     { "id": "F3", "title": "雨夜龙缘 · 龙族新娘", "file": "F3_雨夜龙缘.json" }
+    { "id": "F4", "title": "异世女王", "file": "F4_异世女王.json" }    
 ]
 }

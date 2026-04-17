@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "storyId": "F4",
+    "title": "异世女王",
+    "type": "fantasy",
+    "author": "AI Assistant",
+    "version": "1.0.0",
+    "description": "你在两百平的大床上醒来，发现自己穿越成了异世界的女王，而你的王座正被各方势力觊觎。",
+    "tags": ["穿越", "女王", "魔法", "权谋"]
+  },
+  "startNodeId": "F4_start",
+  "globalFlags": {
+    "magicPower": 0,
+    "trustMinister": 0,
+    "rebellionKnown": false,
+    "alliance": null
+  },
+  "nodes": {
+    "F4_start": {
+      "id": "F4_start",
+      "text": "你在两百平的大床上醒来，丝绸帷幔垂落，金碧辉煌的穹顶绘着巨龙。一个侍女跪在床边：“女王陛下，您终于醒了！摄政王说如果您再昏迷，就要废黜您。” 你低头看到自己修长的手指，指甲上嵌着宝石。一段陌生的记忆涌入脑海：你是奥莉薇娅，一个被魔法反噬而失去部分记忆的女王。国家动荡，摄政王权倾朝野。",
+      "options": [
+        {
+          "text": "👑 冷静应对，召见摄政王",
+          "nextNode": "F4_summon_regent",
+          "flagsToSet": { "trustMinister": 10 }
+        },
+        {
+          "text": "🔮 尝试唤醒体内魔法",
+          "nextNode": "F4_awaken_magic",
+          "flagsToSet": { "magicPower": 20 }
+        }
+      ],
+      "isEnding": false
+    },
+    "F4_summon_regent": {
+      "id": "F4_summon_regent",
+      "text": "摄政王雷克斯大步走来，他高大威严，眼中却没有敬意：“陛下，您昏迷期间，北方叛军已攻下两座城池。臣建议您和亲，嫁给邻国王子以换取援军。”",
+      "options": [
+        {
+          "text": "😡 拒绝，我要御驾亲征",
+          "nextNode": "F4_war",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🤝 同意和亲，但条件由我定",
+          "nextNode": "F4_marriage",
+          "flagsToSet": { "alliance": "neighbor" }
+        }
+      ],
+      "isEnding": false
+    },
+    "F4_awaken_magic": {
+      "id": "F4_awaken_magic",
+      "text": "你闭上眼，感受体内涌动的魔力。火焰在掌心燃起，侍女惊呼。你记起自己曾是大陆最强法师，但魔法反噬后力量被封印。现在封印松动了一些。",
+      "options": [
+        {
+          "text": "🔥 用魔法震慑群臣",
+          "nextNode": "F4_show_magic",
+          "flagsToSet": { "magicPower": 30 }
+        },
+        {
+          "text": "📖 寻找恢复全部魔力的方法",
+          "nextNode": "F4_seek_spell",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F4_war": {
+      "id": "F4_war",
+      "text": "你披上战甲，率军出征。战场上，叛军首领竟是你儿时的好友——他因不满你的改革而反叛。他持剑对你：“女王，你变了。”",
+      "options": [
+        {
+          "text": "⚔️ 决斗，用武力让他臣服",
+          "nextNode": "F4_duel",
+          "flagsToSet": {}
+        },
+        {
+          "text": "🗣️ 试图说服他，许诺改革",
+          "nextNode": "F4_persuade",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F4_duel": {
+      "id": "F4_duel",
+      "text": "你凭借魔法和剑术击败了他，但没有杀他。他跪地认罪，愿意归顺。叛军投降，你声望大涨。",
+      "options": [
+        {
+          "text": "🏆 结局",
+          "nextNode": "ending_queen_victor",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_queen_victor": {
+      "id": "ending_queen_victor",
+      "text": "你成为真正的铁腕女王，国家统一，魔法复兴。多年后，你站在城墙上，俯瞰繁荣的国土，身边是忠诚的将军和爱你的子民。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：女王万岁】武力与智慧并存的传奇。"
+    },
+    "F4_persuade": {
+      "id": "F4_persuade",
+      "text": "你放下剑，与他促膝长谈。他最终被你的诚意打动，重新效忠。你们一起改革弊政，国家走向富强。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：以德服人】和平统一，万民称颂。"
+    },
+    "F4_marriage": {
+      "id": "F4_marriage",
+      "text": "邻国王子英俊而温柔，他尊重你，愿意帮助你平定叛乱。婚礼上，摄政王试图刺杀你，被王子挡下。原来摄政王才是幕后黑手。",
+      "options": [
+        {
+          "text": "💑 与王子一起夺回王权",
+          "nextNode": "ending_marriage_victory",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "ending_marriage_victory": {
+      "id": "ending_marriage_victory",
+      "text": "你们联手击败摄政王，两国合并，成为大陆最强帝国。你和王子相爱，共享王座。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：联姻之恋】爱情与权力双丰收。"
+    },
+    "F4_show_magic": {
+      "id": "F4_show_magic",
+      "text": "朝堂上，你释放出强大的火焰魔法，震慑了所有大臣。摄政王脸色铁青，不敢再公然反对你。",
+      "options": [
+        {
+          "text": "🔮 继续巩固权力",
+          "nextNode": "F4_consolidate",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F4_consolidate": {
+      "id": "F4_consolidate",
+      "text": "你逐步削弱摄政王的势力，提拔忠诚的法师。一年后，摄政王被流放，你大权独揽。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：魔法女王】力量即正义。"
+    },
+    "F4_seek_spell": {
+      "id": "F4_seek_spell",
+      "text": "你独自前往禁忌森林寻找古魔法卷轴。途中遇到一位神秘法师，他愿意帮你，但要求你答应一个条件——释放被囚禁的精灵族。",
+      "options": [
+        {
+          "text": "🤝 同意条件",
+          "nextNode": "F4_release_elves",
+          "flagsToSet": {}
+        },
+        {
+          "text": "💪 拒绝，强行夺取卷轴",
+          "nextNode": "F4_fight_mage",
+          "flagsToSet": {}
+        }
+      ],
+      "isEnding": false
+    },
+    "F4_release_elves": {
+      "id": "F4_release_elves",
+      "text": "你释放精灵，获得精灵族的支持和古魔法。你成为大陆最强者，统一各族，开创和平盛世。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：精灵盟友】多元种族共治。"
+    },
+    "F4_fight_mage": {
+      "id": "F4_fight_mage",
+      "text": "你击败神秘法师，夺得卷轴，但自己也受了重伤。魔力恢复后，你变得冷酷专制，人民畏惧你。",
+      "options": [],
+      "isEnding": true,
+      "endingText": "【结局：暴君之路】力量使人孤独。"
+    }
+  },
+  "endings": {}
+}
