@@ -7,11 +7,11 @@
     };
 
     // 游戏状态
-    let currentStory = null;          // 当前故事对象
+    let currentStory = null;
     let currentNodeId = null;
     let currentFlags = {};
     let gameActive = true;
-    let currentType = null;            // 'romance', 'mystery', 'fantasy'
+    let currentType = null;
     let currentStoryId = null;
 
     // DOM 元素
@@ -20,9 +20,6 @@
     const optionsArea = document.getElementById('optionsArea');
     const restartBtn = document.getElementById('restartBtn');
     const resetGameBtn = document.getElementById('resetGameBtn');
-
-    // 类型选择界面 (临时插入)
-    let typeSelectorDiv = null;
 
     // ---------- 辅助函数 ----------
     function showError(msg) {
@@ -46,7 +43,6 @@
         localStorage.removeItem('narrative_save');
     }
 
-    // 重置当前故事（重来）
     function resetGameState() {
         if (!currentStory) return;
         currentNodeId = currentStory.startNodeId;
@@ -57,13 +53,11 @@
         saveGame();
     }
 
-    // 应用旗标
     function applyFlags(flagsToSet) {
         if (!flagsToSet) return;
         Object.assign(currentFlags, flagsToSet);
     }
 
-    // 渲染当前节点
     function renderCurrentNode() {
         if (!currentStory) return;
         const node = currentStory.nodes[currentNodeId];
@@ -77,7 +71,6 @@
         void storyTextEl.offsetWidth;
         storyTextEl.classList.add('fade-in');
 
-        // 结局判定
         if (node.isEnding === true) {
             gameActive = false;
             optionsArea.innerHTML = `
@@ -92,7 +85,6 @@
             return;
         }
 
-        // 生成选项
         if (!node.options || node.options.length === 0) {
             optionsArea.innerHTML = '<button class="option-btn" onclick="location.reload()">重新开始</button>';
             return;
@@ -118,7 +110,6 @@
         });
     }
 
-    // 加载指定故事（通过类型和文件名）
     async function loadStory(type, storyId, fileName) {
         try {
             const url = `${CONFIG.dataPath}${type}/${fileName}`;
@@ -138,7 +129,6 @@
             gameActive = true;
             clearSave();
             
-            // 更新界面标题
             storyTitleEl.innerText = storyData.meta?.title || '互动故事';
             renderCurrentNode();
             saveGame();
@@ -148,7 +138,6 @@
         }
     }
 
-    // 根据类型随机选择一个故事
     async function loadRandomStoryByType(type) {
         try {
             const indexResp = await fetch(CONFIG.indexUrl);
@@ -168,9 +157,7 @@
         }
     }
 
-    // 显示类型选择界面
     function showTypeSelection() {
-        // 隐藏游戏主体内容，显示类型按钮
         currentStory = null;
         gameActive = false;
         storyTitleEl.innerText = '选择你的故事类型';
@@ -190,7 +177,6 @@
             });
         });
         
-        // 调整按钮区域样式
         optionsArea.style.display = 'flex';
         restartBtn.disabled = true;
         resetGameBtn.disabled = true;
@@ -198,7 +184,6 @@
         resetGameBtn.style.opacity = '0.5';
     }
 
-    // 重新启用底部按钮
     function enableBottomButtons() {
         restartBtn.disabled = false;
         resetGameBtn.disabled = false;
@@ -206,7 +191,6 @@
         resetGameBtn.style.opacity = '1';
     }
 
-    // 尝试恢复存档
     async function tryResumeFromSave() {
         const raw = localStorage.getItem('narrative_save');
         if (!raw) return false;
@@ -232,24 +216,12 @@
         return false;
     }
 
-    // 重置全部并返回类型选择
-    function fullReset() {
+    // 修改：换故事 → 直接返回类型选择界面
+    function changeToAnotherStory() {
         clearSave();
         showTypeSelection();
     }
 
-    // 换一个故事（同一类型下重新随机）
-    async function changeToAnotherStory() {
-        if (!currentType) {
-            showTypeSelection();
-            return;
-        }
-        clearSave();
-        await loadRandomStoryByType(currentType);
-        enableBottomButtons();
-    }
-
-    // 初始化事件绑定
     function bindEvents() {
         restartBtn.onclick = () => {
             if (currentStory && confirm('重来一次会丢失当前进度，确定吗？')) {
@@ -267,7 +239,6 @@
         };
     }
 
-    // 初始化入口
     async function init() {
         bindEvents();
         const resumed = await tryResumeFromSave();
