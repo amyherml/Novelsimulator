@@ -178,7 +178,7 @@
             clearSave();
             
             //storyTitleEl.innerText = storyData.meta?.title || '互动故事';
-            storyTitleEl.innerText = '您的选择将决定故事的走向';
+            storyTitleEl.innerText = '叙事幻镜';
             renderCurrentNode();
             saveGame();
             enableBottomButtons();
