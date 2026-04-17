@@ -1,682 +1,687 @@
 {
   "meta": {
-    "storyId": "R_reunion",
-    "title": "雨夜图书馆·重逢时",
+    "storyId": "R1",
+    "title": "雨夜图书馆",
     "type": "romance",
     "author": "叙事幻镜",
     "version": "1.0.0",
     "description": "毕业三年后，雨夜重逢初恋。一本旧书，一场误会，一段念念不忘的回响。",
     "tags": ["初恋", "重逢", "图书馆", "治愈", "双向奔赴"]
   },
-  "startNodeId": "chap1_1",
+  "startNodeId": "R1_start",
   "globalFlags": {
     "love": 0,
     "trust": 0,
     "clarity": 0
   },
   "nodes": {
-    "chap1_1": {
-      "id": "chap1_1",
+    "R1_start": {
+      "id": "R1_start",
       "text": "雨大得像天被捅了个窟窿。你抱着公文包冲进大学时常去的那家图书馆，水珠顺着发梢往下淌。馆里暖气很足，旧纸页的味道混着咖啡香扑面而来。\n\n你习惯性看向靠窗那个位置——然后愣住了。\n\n他坐在那里。还是那件深灰色的卫衣，头发长了些，正低头看书，侧脸被台灯镀上一层暖光。\n\n沈叙白。毕业那天突然消失、再无音讯的初恋。",
       "options": [
         {
           "text": "心跳加速，默默坐到远处的角落",
-          "nextNode": "chap1_2",
+          "nextNode": "R1_meet_again",
           "flagsToSet": { "love": 0, "trust": -2 }
         },
         {
           "text": "深吸一口气，大方走过去坐他对面",
-          "nextNode": "chap1_2",
+          "nextNode": "R1_meet_again",
           "flagsToSet": { "love": 5, "trust": 3 }
         },
         {
           "text": "转身推开图书馆的门，冲进雨里",
-          "nextNode": "ending_miss_early",
+          "nextNode": "R1_ending_miss_early",
           "flagsToSet": {}
         }
       ],
       "isEnding": false
     },
-    "chap1_2": {
-      "id": "chap1_2",
+    "R1_meet_again": {
+      "id": "R1_meet_again",
       "text": "他像是感应到什么，抬起头。四目相对的瞬间，你看到他眼里闪过惊讶、犹豫，还有一丝来不及藏好的……欣喜。\n\n“好久不见。”他的声音比记忆里低沉了一些。",
       "options": [
         {
           "text": "假装没认出，低头刷手机",
-          "nextNode": "chap1_3",
+          "nextNode": "R1_close_time",
           "flagsToSet": { "love": -3, "trust": -2 }
         },
         {
           "text": "“好久不见。”尽量让声音平稳",
-          "nextNode": "chap1_3",
+          "nextNode": "R1_close_time",
           "flagsToSet": { "love": 3, "trust": 2 }
         },
         {
           "text": "“你当年为什么不告而别？”声音比想象中尖锐",
-          "nextNode": "chap1_3_conflict",
+          "nextNode": "R1_conflict_early",
           "flagsToSet": { "love": -5, "trust": -5, "clarity": 10 }
         }
       ],
       "isEnding": false
     },
-    "chap1_3": {
-      "id": "chap1_3",
+    "R1_close_time": {
+      "id": "R1_close_time",
       "text": "沉默在两人之间蔓延。窗外雨声噼啪，像倒计时。广播响起：“图书馆将在十五分钟后闭馆。”\n\n他看了一眼窗外，又看向你。",
       "options": [
         {
           "text": "等他先开口告别",
-          "nextNode": "chap2_1",
+          "nextNode": "R1_coffee",
           "flagsToSet": {}
         },
         {
           "text": "“我先走了。”拎起包起身",
-          "nextNode": "chap2_1",
+          "nextNode": "R1_coffee",
           "flagsToSet": { "love": -2 }
         },
         {
           "text": "“雨这么大，要不要一起撑伞？”",
-          "nextNode": "chap2_1",
+          "nextNode": "R1_coffee",
           "flagsToSet": { "love": 8, "trust": 5 }
         }
       ],
       "isEnding": false
     },
-    "chap1_3_conflict": {
-      "id": "chap1_3_conflict",
+    "R1_conflict_early": {
+      "id": "R1_conflict_early",
       "text": "他的脸色瞬间苍白。嘴唇动了动，最后只挤出一句：“对不起。”\n\n你突然后悔了。这不是你想要的见面方式。广播催闭馆，他站起来，把桌上的咖啡杯捏得咯吱响。",
       "options": [
         {
           "text": "“算了，当我没问。”转身离开",
-          "nextNode": "chap2_1",
+          "nextNode": "R1_coffee",
           "flagsToSet": { "love": -8, "trust": -5 }
         },
         {
           "text": "“改天……能聊聊吗？”声音软下来",
-          "nextNode": "chap2_1",
+          "nextNode": "R1_coffee",
           "flagsToSet": { "love": 0, "trust": 2, "clarity": 5 }
         }
       ],
       "isEnding": false
     },
-    "chap2_1": {
-      "id": "chap2_1",
+    "R1_coffee": {
+      "id": "R1_coffee",
       "text": "第二天，雨停了。你鬼使神差又去了图书馆。他不在。你松了口气又失落，在书架间漫无目的地走。\n\n“给。”一杯热咖啡出现在你面前。\n\n他不知什么时候来了，眼底有淡淡的青黑，像是没睡好。",
       "options": [
         {
           "text": "接过咖啡，低声说谢谢",
-          "nextNode": "chap2_2",
+          "nextNode": "R1_you_havent_changed",
           "flagsToSet": { "love": 3, "trust": 2 }
         },
         {
           "text": "“不用了，我不喝咖啡。”刻意冷淡",
-          "nextNode": "chap2_2",
+          "nextNode": "R1_you_havent_changed",
           "flagsToSet": { "love": -2, "trust": -3 }
         },
         {
           "text": "“你不会下毒了吧？”开个玩笑缓解尴尬",
-          "nextNode": "chap2_2",
+          "nextNode": "R1_you_havent_changed",
           "flagsToSet": { "love": 2, "trust": 1 }
         }
       ],
       "isEnding": false
     },
-    "chap2_2": {
-      "id": "chap2_2",
+    "R1_you_havent_changed": {
+      "id": "R1_you_havent_changed",
       "text": "他坐在你对面，沉默片刻，忽然说：“你一点没变。”",
       "options": [
         {
           "text": "“你倒是变了很多。”带点刺",
-          "nextNode": "chap2_3",
+          "nextNode": "R1_phone_call",
           "flagsToSet": { "love": -1, "trust": -2 }
         },
         {
           "text": "“是吗？哪里没变？”语气好奇",
-          "nextNode": "chap2_3",
+          "nextNode": "R1_phone_call",
           "flagsToSet": { "love": 2, "trust": 2 }
         },
         {
           "text": "低头不说话，指尖摩挲杯壁",
-          "nextNode": "chap2_3",
+          "nextNode": "R1_phone_call",
           "flagsToSet": { "love": 0, "trust": -1 }
         }
       ],
       "isEnding": false
     },
-    "chap2_3": {
-      "id": "chap2_3",
+    "R1_phone_call": {
+      "id": "R1_phone_call",
       "text": "他正要说什么，手机突然震动。他看了一眼屏幕，犹豫片刻按掉了。",
       "options": [
         {
           "text": "“不接吗？万一急事。”",
-          "nextNode": "chap3_1",
+          "nextNode": "R1_old_letter",
           "flagsToSet": { "love": 1, "trust": 2 }
         },
         {
           "text": "装作没注意，喝咖啡",
-          "nextNode": "chap3_1",
+          "nextNode": "R1_old_letter",
           "flagsToSet": {}
         },
         {
           "text": "“还是这么神秘。”语气讽刺",
-          "nextNode": "chap3_1",
+          "nextNode": "R1_old_letter",
           "flagsToSet": { "love": -3, "trust": -4 }
         }
       ],
       "isEnding": false
     },
-    "chap3_1": {
-      "id": "chap3_1",
+    "R1_old_letter": {
+      "id": "R1_old_letter",
       "text": "回到家，你翻箱倒柜找出一封信。那是毕业前写给他的，字迹稚嫩，写着“如果我们还能再见……”最后没有寄出。",
       "options": [
         {
           "text": "撕掉，扔进垃圾桶",
-          "nextNode": "chap3_2",
+          "nextNode": "R1_friend_call",
           "flagsToSet": { "love": -5, "trust": -3 }
         },
         {
           "text": "重读一遍，折好放回抽屉",
-          "nextNode": "chap3_2",
+          "nextNode": "R1_friend_call",
           "flagsToSet": { "love": 0 }
         },
         {
           "text": "用手机拍下来，存进私密相册",
-          "nextNode": "chap3_2",
+          "nextNode": "R1_friend_call",
           "flagsToSet": { "love": 3, "trust": 2 }
         }
       ],
       "isEnding": false
     },
-    "chap3_2": {
-      "id": "chap3_2",
+    "R1_friend_call": {
+      "id": "R1_friend_call",
       "text": "手机响了，是闺蜜林薇。“听说你昨天遇见沈叙白了？怎么样怎么样？”",
       "options": [
         {
           "text": "如实告诉她，说心里很乱",
-          "nextNode": "chap3_3",
+          "nextNode": "R1_memory",
           "flagsToSet": { "love": 2, "trust": 2 }
         },
         {
           "text": "“没有，你看错了。”撒谎",
-          "nextNode": "chap3_3",
+          "nextNode": "R1_memory",
           "flagsToSet": { "love": -2, "trust": -2 }
         },
         {
           "text": "“还行吧。”敷衍过去",
-          "nextNode": "chap3_3",
+          "nextNode": "R1_memory",
           "flagsToSet": {}
         }
       ],
       "isEnding": false
     },
-    "chap3_3": {
-      "id": "chap3_3",
+    "R1_memory": {
+      "id": "R1_memory",
       "text": "挂掉电话，你躺在床上，天花板在黑暗中变成模糊的灰。那些记忆涌上来：他帮你占座、他给你带早餐、他在雨里等你下课……然后，毕业典礼那天，他消失了。\n\n你闭上眼睛，脑海里浮现的是——",
       "options": [
         {
           "text": "他转身离开的背影，怎么喊都不回头",
-          "nextNode": "chap4_1",
+          "nextNode": "R1_ask_admin",
           "flagsToSet": { "love": -3, "trust": -2 }
         },
         {
           "text": "他笑着递给你冰可乐的样子，阳光落在他睫毛上",
-          "nextNode": "chap4_1",
+          "nextNode": "R1_ask_admin",
           "flagsToSet": { "love": 5, "trust": 2 }
         },
         {
           "text": "努力放空，数羊逼自己睡着",
-          "nextNode": "chap4_1",
+          "nextNode": "R1_ask_admin",
           "flagsToSet": {}
         }
       ],
       "isEnding": false
     },
-    "chap4_1": {
-      "id": "chap4_1",
+    "R1_ask_admin": {
+      "id": "R1_ask_admin",
       "text": "第二天下午，你假装路过图书馆，推门进去。前台管理员是个圆脸姑娘，你鼓起勇气问：“请问……沈叙白常来吗？”",
       "options": [
         {
           "text": "直接问：“他一般什么时候来？”",
-          "nextNode": "chap4_2",
+          "nextNode": "R1_friday_night",
           "flagsToSet": { "love": 3, "clarity": 5 }
         },
         {
           "text": "“随便问问，没事。”假装不在意",
-          "nextNode": "chap4_2",
+          "nextNode": "R1_friday_night",
           "flagsToSet": { "love": -1 }
         },
         {
           "text": "“能给我他的联系方式吗？”",
-          "nextNode": "chap4_2",
+          "nextNode": "R1_friday_night",
           "flagsToSet": { "love": 2, "clarity": 2 }
         }
       ],
       "isEnding": false
     },
-    "chap4_2": {
-      "id": "chap4_2",
+    "R1_friday_night": {
+      "id": "R1_friday_night",
       "text": "管理员小声说：“他啊，每周五晚上都来，坐在老位置，好像在等什么人。”\n\n周五。今天就是周五。\n\n你找了个书架后的位置坐下，假装看书。七点刚过，他推门进来，径直走向靠窗的位置。你看到他手里拿着一本书——封面很旧，是当年你们一起读过的《挪威的森林》。",
       "options": [
         {
           "text": "起身坐到他旁边去",
-          "nextNode": "chap4_3",
+          "nextNode": "R1_eye_contact",
           "flagsToSet": { "love": 5, "trust": 3 }
         },
         {
           "text": "远远观察他，看他做什么",
-          "nextNode": "chap4_3",
+          "nextNode": "R1_eye_contact",
           "flagsToSet": { "love": 0, "clarity": 3 }
         },
         {
           "text": "故意晚十分钟过去，看他会看门口吗",
-          "nextNode": "chap4_3",
+          "nextNode": "R1_eye_contact",
           "flagsToSet": { "love": 2, "clarity": 4 }
         }
       ],
       "isEnding": false
     },
-    "chap4_3": {
-      "id": "chap4_3",
+    "R1_eye_contact": {
+      "id": "R1_eye_contact",
       "text": "他似乎感觉到了什么，抬起头，目光正好撞上你的。这次他没有移开，而是微微弯了弯嘴角。",
       "options": [
         {
           "text": "朝他笑了笑，低头看书",
-          "nextNode": "chap5_1",
+          "nextNode": "R1_same_book",
           "flagsToSet": { "love": 2, "trust": 2 }
         },
         {
           "text": "慌张地移开视线，假装在找书",
-          "nextNode": "chap5_1",
+          "nextNode": "R1_same_book",
           "flagsToSet": { "love": -1, "trust": -1 }
         },
         {
           "text": "走过去说：“真巧，又遇到了。”",
-          "nextNode": "chap5_1",
+          "nextNode": "R1_same_book",
           "flagsToSet": { "love": 4, "trust": 3 }
         }
       ],
       "isEnding": false
     },
-    "chap5_1": {
-      "id": "chap5_1",
+    "R1_same_book": {
+      "id": "R1_same_book",
       "text": "你走到文学区，伸手去够最上层的一本书。同时，另一只手也伸了过来，指尖轻轻碰到你的手背。\n\n是沈叙白。你们要拿的是同一本书。",
       "options": [
         {
           "text": "缩回手，“你先拿。”",
-          "nextNode": "chap5_2",
+          "nextNode": "R1_note_fall",
           "flagsToSet": { "love": 0, "trust": 1 }
         },
         {
           "text": "坚持不松手，“我先看到的。”",
-          "nextNode": "chap5_2",
+          "nextNode": "R1_note_fall",
           "flagsToSet": { "love": 3, "trust": 2 }
         },
         {
           "text": "“要不……一起看？”",
-          "nextNode": "chap5_2",
+          "nextNode": "R1_note_fall",
           "flagsToSet": { "love": 5, "trust": 4 }
         }
       ],
       "isEnding": false
     },
-    "chap5_2": {
-      "id": "chap5_2",
+    "R1_note_fall": {
+      "id": "R1_note_fall",
       "text": "他松开手，让你先拿。你取下书，翻开扉页——一张泛黄的纸条掉了出来。你捡起来，上面是你的笔迹：“我们永远是最好的朋友。”\n\n那是你当年赌气写的。他沉默地看着纸条，眼神暗了暗。",
       "options": [
         {
           "text": "抢过纸条，飞快撕掉",
-          "nextNode": "chap5_3",
+          "nextNode": "R1_turn_leave",
           "flagsToSet": { "love": -5, "trust": -5 }
         },
         {
           "text": "“我那时候……嘴硬写的。”声音很小",
-          "nextNode": "chap5_3",
+          "nextNode": "R1_turn_leave",
           "flagsToSet": { "love": 8, "trust": 7, "clarity": 10 }
         },
         {
           "text": "什么都不说，看他反应",
-          "nextNode": "chap5_3",
+          "nextNode": "R1_turn_leave",
           "flagsToSet": { "love": -2, "trust": -3 }
         }
       ],
       "isEnding": false
     },
-    "chap5_3": {
-      "id": "chap5_3",
+    "R1_turn_leave": {
+      "id": "R1_turn_leave",
       "text": "他拿着纸条，转身走向门口。",
       "options": [
         {
           "text": "拉住他的手腕，“别走。”",
-          "nextNode": "chap6_1",
+          "nextNode": "R1_confront",
           "flagsToSet": { "love": 10, "trust": 8 }
         },
         {
           "text": "喊他的名字，但没有追",
-          "nextNode": "chap6_1",
+          "nextNode": "R1_confront",
           "flagsToSet": { "love": -3, "trust": -2 }
         },
         {
           "text": "追上去，“听我解释！”",
-          "nextNode": "chap6_1",
+          "nextNode": "R1_confront",
           "flagsToSet": { "love": 5, "trust": 5 }
         }
       ],
       "isEnding": false
     },
-    "chap6_1": {
-      "id": "chap6_1",
+    "R1_confront": {
+      "id": "R1_confront",
       "text": "在图书馆门口，雨又开始下了。他站在屋檐下，背影僵直。你走到他身边，他忽然转身：“为什么？当年不告而别的是你，现在却装作受害者？”\n\n声音里有压抑的怒意，也有一丝颤抖。",
       "options": [
         {
           "text": "“明明是你先消失的！”声音比他更大",
-          "nextNode": "chap6_2",
+          "nextNode": "R1_reveal",
           "flagsToSet": { "love": -5, "trust": -5, "clarity": 5 }
         },
         {
           "text": "眼泪一下子涌出来，咬着嘴唇不说话",
-          "nextNode": "chap6_2",
+          "nextNode": "R1_reveal",
           "flagsToSet": { "love": 3, "trust": 5 }
         },
         {
           "text": "“我们都冷静一下，改天再谈。”",
-          "nextNode": "chap6_2",
+          "nextNode": "R1_reveal",
           "flagsToSet": { "love": -2, "trust": -1 }
         }
       ],
       "isEnding": false
     },
-    "chap6_2": {
-      "id": "chap6_2",
+    "R1_reveal": {
+      "id": "R1_reveal",
       "text": "他深吸一口气，声音低下来：“我家出事了。我爸生病，欠了很多钱，我不想拖累你……所以没告诉你。你呢？为什么也不联系我？”",
       "options": [
         {
           "text": "“我以为你变心了，所以赌气没找你。”",
-          "nextNode": "chap6_3",
+          "nextNode": "R1_after_rain",
           "flagsToSet": { "love": 15, "trust": 12, "clarity": 15 }
         },
         {
           "text": "“为什么不告诉我实情？你知不知道我等了你多久？”",
-          "nextNode": "chap6_3",
+          "nextNode": "R1_after_rain",
           "flagsToSet": { "love": -3, "trust": -2 }
         },
         {
           "text": "扑上去抱住他，把脸埋在他胸口哭",
-          "nextNode": "chap6_3",
+          "nextNode": "R1_after_rain",
           "flagsToSet": { "love": 20, "trust": 18, "clarity": 10 }
         }
       ],
       "isEnding": false
     },
-    "chap6_3": {
-      "id": "chap6_3",
+    "R1_after_rain": {
+      "id": "R1_after_rain",
       "text": "雨小了些，两人沉默地站在屋檐下，肩膀几乎碰到一起。",
       "options": [
         {
           "text": "“旁边有家咖啡馆，去坐坐？”",
-          "nextNode": "chap7_1",
+          "nextNode": "R1_friend_tell",
           "flagsToSet": { "love": 3, "trust": 2 }
         },
         {
           "text": "“我先回去了……明天还能见吗？”",
-          "nextNode": "chap7_1",
+          "nextNode": "R1_friend_tell",
           "flagsToSet": { "love": 2, "trust": 3 }
         },
         {
           "text": "“你……现在有女朋友吗？”",
-          "nextNode": "chap7_1",
+          "nextNode": "R1_friend_tell",
           "flagsToSet": { "love": 5, "trust": 3 }
         }
       ],
       "isEnding": false
     },
-    "chap7_1": {
-      "id": "chap7_1",
+    "R1_friend_tell": {
+      "id": "R1_friend_tell",
       "text": "第二天，你约了沈叙白的朋友陈屿见面。陈屿叹了口气：“他爸那年脑溢血，家里积蓄全花光了。他不想让你跟着受苦，才故意疏远你。毕业后他白天上班，晚上照顾老人，根本没时间解释。”",
       "options": [
         {
           "text": "相信陈屿的话，心里又酸又软",
-          "nextNode": "chap7_2",
+          "nextNode": "R1_hidden_letter",
           "flagsToSet": { "love": 10, "trust": 8 }
         },
         {
           "text": "“他为什么不自己告诉我？”怀疑陈屿在帮他说好话",
-          "nextNode": "chap7_2",
+          "nextNode": "R1_hidden_letter",
           "flagsToSet": { "love": -5, "trust": -5 }
         },
         {
           "text": "“能告诉我更多细节吗？”想确认",
-          "nextNode": "chap7_2",
+          "nextNode": "R1_hidden_letter",
           "flagsToSet": { "love": 2, "clarity": 10 }
         }
       ],
       "isEnding": false
     },
-    "chap7_2": {
-      "id": "chap7_2",
+    "R1_hidden_letter": {
+      "id": "R1_hidden_letter",
       "text": "你回到家，翻开当年他送你的那本《小王子》。书页里，一张对折的纸掉出来——是他写的信，日期是毕业前一天。\n\n“对不起，我要离开一段时间。等我处理好一切，我会回来找你。如果那时候你还在等我。”",
       "options": [
         {
           "text": "想起他当年欲言又止的样子，心疼得厉害",
-          "nextNode": "chap7_3",
+          "nextNode": "R1_night_decision",
           "flagsToSet": { "love": 5, "trust": 3 }
         },
         {
           "text": "想起他最后一条消息“我们结束吧”，仍然有些怨气",
-          "nextNode": "chap7_3",
+          "nextNode": "R1_night_decision",
           "flagsToSet": { "love": -3, "trust": -2 }
         },
         {
           "text": "把信拍下来，决定明天给他看",
-          "nextNode": "chap7_3",
+          "nextNode": "R1_night_decision",
           "flagsToSet": { "love": 4, "clarity": 8 }
         }
       ],
       "isEnding": false
     },
-    "chap7_3": {
-      "id": "chap7_3",
+    "R1_night_decision": {
+      "id": "R1_night_decision",
       "text": "夜深了，你握着手机，对话框里他的名字亮着。",
       "options": [
         {
           "text": "主动发消息：“明天图书馆见？我有话对你说。”",
-          "nextNode": "chap8_1",
+          "nextNode": "R1_he_left",
           "flagsToSet": { "love": 5, "trust": 5 }
         },
         {
           "text": "等他联系我。抱着手机睡着",
-          "nextNode": "chap8_1",
+          "nextNode": "R1_he_left",
           "flagsToSet": { "love": -2, "trust": -2 }
         },
         {
           "text": "直接去图书馆等他，不等回复",
-          "nextNode": "chap8_1",
+          "nextNode": "R1_he_left",
           "flagsToSet": { "love": 8, "trust": 6 }
         }
       ],
       "isEnding": false
     },
-    "chap8_1": {
-      "id": "chap8_1",
+    "R1_he_left": {
+      "id": "R1_he_left",
       "text": "第二天你赶到图书馆，前台管理员说：“沈叙白啊，他昨天辞职了，说要回老家工作。”",
       "options": [
         {
           "text": "“他老家地址你知道吗？求求你告诉我。”",
-          "nextNode": "chap8_2",
+          "nextNode": "R1_taxi",
           "flagsToSet": { "love": 5, "clarity": 5 }
         },
         {
           "text": "立刻拨他的电话",
-          "nextNode": "chap8_2",
+          "nextNode": "R1_taxi",
           "flagsToSet": { "love": 3, "trust": 2 }
         },
         {
           "text": "愣在原地，觉得又错过了",
-          "nextNode": "ending_miss_late",
+          "nextNode": "R1_ending_miss_late",
           "flagsToSet": {}
         }
       ],
       "isEnding": false
     },
-    "chap8_2": {
-      "id": "chap8_2",
+    "R1_taxi": {
+      "id": "R1_taxi",
       "text": "电话接通，他声音有些哑：“我在火车站，两小时后的车。”\n\n你冲出图书馆，拦了辆出租车。“去火车站！”\n\n路上堵车了，车流一动不动。",
       "options": [
         {
           "text": "付钱下车，在雨中跑步去火车站",
-          "nextNode": "chap8_3",
+          "nextNode": "R1_train_gone",
           "flagsToSet": { "love": 8, "trust": 5 }
         },
         {
           "text": "让司机绕小路，希望快点",
-          "nextNode": "chap8_3",
+          "nextNode": "R1_train_gone",
           "flagsToSet": { "love": 0 }
         },
         {
           "text": "扫了一辆共享单车，抄近道",
-          "nextNode": "chap8_3",
+          "nextNode": "R1_train_gone",
           "flagsToSet": { "love": 5, "clarity": 3 }
         }
       ],
       "isEnding": false
     },
-    "chap8_3": {
-      "id": "chap8_3",
+    "R1_train_gone": {
+      "id": "R1_train_gone",
       "text": "你气喘吁吁跑到站台，那趟车刚刚开走。铁轨空荡荡的，雨淋湿了你的头发和衣服。",
       "options": [
         {
           "text": "蹲在地上，眼泪和雨水混在一起",
-          "nextNode": "chap9_1",
+          "nextNode": "R1_book_left",
           "flagsToSet": { "love": -3, "trust": -2 }
         },
         {
           "text": "立刻买下一班去他城市的票",
-          "nextNode": "chap9_1",
+          "nextNode": "R1_book_left",
           "flagsToSet": { "love": 10, "trust": 8 }
         },
         {
           "text": "拨通电话，哭着说：“你等等我……”",
-          "nextNode": "chap9_1",
+          "nextNode": "R1_book_left",
           "flagsToSet": { "love": 15, "trust": 10 }
         }
       ],
       "isEnding": false
     },
-    "chap9_1": {
-      "id": "chap9_1",
+    "R1_book_left": {
+      "id": "R1_book_left",
       "text": "你失落地回到图书馆，浑身湿透。管理员叫住你：“等等，沈叙白昨晚留了东西在你们常坐的位置。”\n\n靠窗的桌上放着一本新书，封面上系着浅蓝色的丝带。",
       "options": [
         {
           "text": "翻开书，扉页写着：“给可能回来的你。”",
-          "nextNode": "chap9_2",
+          "nextNode": "R1_note_again",
           "flagsToSet": { "love": 20, "trust": 15 }
         },
         {
           "text": "以为是别人放的，放回原处",
-          "nextNode": "chap9_2",
+          "nextNode": "R1_note_again",
           "flagsToSet": { "love": -5 }
         },
         {
           "text": "问管理员：“这本书是谁放的？”",
-          "nextNode": "chap9_2",
+          "nextNode": "R1_note_again",
           "flagsToSet": { "love": 3, "clarity": 10 }
         }
       ],
       "isEnding": false
     },
-    "chap9_2": {
-      "id": "chap9_2",
+    "R1_note_again": {
+      "id": "R1_note_again",
       "text": "书里夹着一张纸条，熟悉的字迹：“如果你看到，请给我一个机会——我还在老地方等你。”\n\n老地方——你们第一次约会的公园长椅。",
       "options": [
         {
           "text": "立刻冲出图书馆，朝公园跑去",
-          "nextNode": "chap9_3",
+          "nextNode": "R1_rain_to_park",
           "flagsToSet": { "love": 10, "trust": 8 }
         },
         {
           "text": "先回家换身干净衣服，再去",
-          "nextNode": "chap9_3",
+          "nextNode": "R1_rain_to_park",
           "flagsToSet": { "love": 0 }
         },
         {
           "text": "拍张照片发朋友圈：“怎么办？”闺蜜们疯狂催你去",
-          "nextNode": "chap9_3",
+          "nextNode": "R1_rain_to_park",
           "flagsToSet": { "love": 5 }
         }
       ],
       "isEnding": false
     },
-    "chap9_3": {
-      "id": "chap9_3",
+    "R1_rain_to_park": {
+      "id": "R1_rain_to_park",
       "text": "去公园的路上，雨又下大了。",
       "options": [
         {
           "text": "不撑伞，在雨里跑",
-          "nextNode": "chap10_1",
+          "nextNode": "R1_final_meet",
           "flagsToSet": { "love": 5, "trust": 3 }
         },
         {
           "text": "撑着伞慢慢走，怕他不在白跑一趟",
-          "nextNode": "chap10_1",
+          "nextNode": "R1_final_meet",
           "flagsToSet": { "love": -2 }
         },
         {
           "text": "买了两把伞，怕他没带",
-          "nextNode": "chap10_1",
+          "nextNode": "R1_final_meet",
           "flagsToSet": { "love": 10, "trust": 5 }
         }
       ],
       "isEnding": false
     },
-    "chap10_1": {
-      "id": "chap10_1",
+    "R1_final_meet": {
+      "id": "R1_final_meet",
       "text": "公园长椅旁，他撑着伞站在那里。看到你，他笑了，眼睛里有水光，不知是雨还是泪。",
       "options": [
         {
           "text": "跑过去，一头扎进他怀里",
-          "nextNode": "ending_perfect_1",
+          "nextNode": "R1_ending_perfect",
           "flagsToSet": {}
         },
         {
           "text": "在三步外停住，笑着说：“我来了。”",
-          "nextNode": "ending_warm_1",
+          "nextNode": "R1_ending_warm",
           "flagsToSet": {}
         },
         {
           "text": "假装路过：“咦，你怎么在这？”",
-          "nextNode": "ending_cute_1",
+          "nextNode": "R1_ending_cute",
           "flagsToSet": {}
         }
       ],
       "isEnding": false
     },
-    "ending_perfect_1": {
-      "id": "ending_perfect_1",
+    "R1_ending_perfect": {
+      "id": "R1_ending_perfect",
       "text": "他接住你，伞歪了，雨淋在两人身上。\n\n“这次，不会再错过了吧？”他声音闷闷的。\n\n你点头，把脸埋得更深：“不会了。”\n\n雨渐渐停了，天边露出一道彩虹。你主动牵起他的手，十指相扣。\n\n后来的事，就像所有美好的故事一样：他留在了这座城市，你们一起养了一只猫，书架上那本《小王子》旁边，多了一本你们合写的日记。\n\n扉页上写着：献给所有念念不忘的回响。\n\n【完美结局·永恒】",
       "options": [],
-      "isEnding": true
+      "isEnding": true,
+      "endingText": "真爱从不按计划出现。"
     },
-    "ending_warm_1": {
-      "id": "ending_warm_1",
+    "R1_ending_warm": {
+      "id": "R1_ending_warm",
       "text": "你站在三步外，笑着说：“我来了。”\n\n他愣了一下，然后走过来，把伞倾向你：“我还以为你不会来。”\n\n“差一点。”\n\n你们并肩坐在长椅上，雨声淅沥。没有拥抱，没有告白，只是安安静静地看雨停。\n\n“慢慢来。”他说。\n\n“好，慢慢来。”\n\n故事没有在这里结束，而是刚刚开始。就像雨后放晴的天空，不急，但一定会亮。\n\n【温情结局·慢慢来】",
       "options": [],
-      "isEnding": true
+      "isEnding": true,
+      "endingText": "最好的感情是细水长流。"
     },
-    "ending_cute_1": {
-      "id": "ending_cute_1",
+    "R1_ending_cute": {
+      "id": "R1_ending_cute",
       "text": "你假装路过：“咦，你怎么在这？”\n\n他忍住笑，配合你：“好巧，我在等一只淋雨的小猫。”\n\n“猫在哪？”\n\n“在我面前。”\n\n你佯装生气锤他，他抓住你的手腕，认真地说：“以后别一个人淋雨了，我带了伞。”\n\n你们撑着同一把伞走进雨里，斗嘴了一路。\n\n后来闺蜜问你们怎么在一起的，你说：“就……在公园偶遇啊。”他在旁边拆台：“偶遇了三次，每次都是我故意等在那里。”\n\n【可爱结局·欢喜冤家】",
       "options": [],
-      "isEnding": true
+      "isEnding": true,
+      "endingText": "缘分有时候就是一场精心设计的偶遇。"
     },
-    "ending_miss_early": {
-      "id": "ending_miss_early",
+    "R1_ending_miss_early": {
+      "id": "R1_ending_miss_early",
       "text": "你冲进雨里，跑出两个路口才停下来。雨水混着眼泪，你不知道自己在哭什么。\n\n后来你再也没去过那家图书馆。听说他等了很多个周五，后来也离开了那座城市。\n\n很多年后你偶然路过，图书馆已经改成了奶茶店。你买了一杯最甜的奶茶，却喝出了苦味。\n\n有些人，转身就是一辈子。\n\n【遗憾结局·错过一生】",
       "options": [],
-      "isEnding": true
+      "isEnding": true,
+      "endingText": "转身的瞬间，也许就是永远。"
     },
-    "ending_miss_late": {
-      "id": "ending_miss_late",
+    "R1_ending_miss_late": {
+      "id": "R1_ending_miss_late",
       "text": "你愣在原地，觉得命运在开玩笑。\n\n你没有追，没有打电话，只是默默离开了图书馆。\n\n后来你从陈屿那里听说，他在火车站等到了最后一刻，检票三次又退出来。最后是被列车员催着上了车。\n\n“他以为你会来。”陈屿说。\n\n你握着手机，对话框里那句“我还在等你”打了又删。\n\n有些人，不是不爱，是差了一点勇气。\n\n【遗憾结局·差一点点】",
       "options": [],
-      "isEnding": true
+      "isEnding": true,
+      "endingText": "勇气是爱情里最贵的奢侈品。"
     }
   },
   "endings": {}
